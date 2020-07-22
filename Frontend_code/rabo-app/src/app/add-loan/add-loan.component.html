@@ -1,0 +1,83 @@
+
+        
+
+
+<div class="container" width="25%">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="container add-loan" 
+        ngModelGroup="addLoanData"
+        #addLoanData="ngModelGroup">
+
+            <div class="container ">
+                <div class="col-xs-4 col-sm-5 "> 
+                        <input type="text" class="form-control" placeholder="Enter first name" 
+                        ngModel 
+                        name="firstName" 
+                        required     
+                        #firstname="ngModel" />
+                    
+                    
+                </div>
+                <br>
+                <div class="col-xs-4 col-sm-5">
+                    
+                    <input type="text" class="form-control" placeholder="Enter Last name" 
+                    ngModel 
+                    name="lastName" 
+                    #lastname="ngModel" 
+                    required />
+                </div>
+                
+                <br>
+
+            
+            <div class="col-xs-4 col-sm-5">
+                
+                <input type="text" class="form-control" placeholder="Enter Loan Number" 
+                ngModel 
+                name="loanNumber" 
+                #loanNumber="ngModel" 
+                required/>
+            </div>
+            
+            <br>
+            <div class="col-xs-4 col-sm-5">
+                
+                <input type="text" class="form-control" placeholder="Enter Address 1" 
+                ngModel 
+                name="address1" 
+                #address1="ngModel" 
+                required/>
+            </div>
+            
+            <br>
+            <div class="col-xs-4 col-sm-5">
+                
+                <input type="text" class="form-control" placeholder="Enter Address 2" 
+                ngModel 
+                name="address2" 
+                #address2="ngModel" 
+                required/>
+            </div>
+
+            
+            <br>
+            <div class="col-xs-4 col-sm-5">
+               
+                <input type="text" class="form-control" placeholder="Enter city" 
+                ngModel 
+                name="city" 
+                #city="ngModel"
+                required/>
+    
+            </div>
+            
+            <br>
+            <div class="col-xs-4 col-sm-5">
+                <button class="btn btn-primary" type="submit"  >Add Loan</button>
+            </div>
+            
+            </div>
+        </div>
+    </form>
+</div>
