@@ -8,7 +8,7 @@ import { UsersService } from './users.service';
 })
 export class GlobalDataService {
 
-  private dataSource = new BehaviorSubject<UsersService>(new UsersService());
+  private dataSource = null;
 
   constructor() { }
 
@@ -17,6 +17,9 @@ export class GlobalDataService {
   }
 
   getDataSelection(){
+    if (this.dataSource == null){
+      //this.dataSource = new BehaviorSubject<UsersService>(new UsersService());
+    }
     return this.dataSource.asObservable();
   }
 }

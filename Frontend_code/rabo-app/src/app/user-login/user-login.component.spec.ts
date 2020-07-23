@@ -6,6 +6,7 @@ import { User } from '../model/User.model';
 import { UsersService } from '../service/users.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import {Observable} from 'rxjs';
+import {BrowserModule , By} from '@angular/platform-browser';
 
 const userServiceSpy = jasmine.createSpyObj<UsersService>('UsersService', ['validateUserDetails', 'setUserData','setCurrentScreen']);
 
@@ -39,6 +40,18 @@ describe('UserLoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should create with components1', () => {
+    let el = fixture.debugElement.query(By.css('form')).nativeElement;
+    el.username.value = 'admin';
+    fixture.detectChanges();
+    
+    let button = fixture.debugElement.query(By.css('button')).nativeElement;
+    button.click();
+    //expect(component.onSubmit).toHaveBeenCalledTimes(1);
+
+    //console.log("****%%%==="+el.username.value);
+    console.log("User object=="+component.user.userName);
+  });
 
   it('should create with components', () => {
     fixture.detectChanges();

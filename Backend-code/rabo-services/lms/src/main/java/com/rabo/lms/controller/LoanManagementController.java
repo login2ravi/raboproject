@@ -1,13 +1,17 @@
 package com.rabo.lms.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rabo.lms.entity.LoanDetail;
@@ -18,6 +22,7 @@ import com.rabo.lms.service.LoanManagementService;
 
 @RestController
 @RequestMapping("/secure")
+@CrossOrigin
 public class LoanManagementController {
 	@Autowired
 	LoanManagementService loanManagementService;
@@ -25,8 +30,8 @@ public class LoanManagementController {
 	
 
 	
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-    List<LoanDetail> search(@RequestBody SearchRequest searchRequest) {
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+    List<LoanDetail> search(SearchRequest searchRequest) {
         
 		System.out.println("first Name=="+searchRequest.getFirstName());
 		System.out.println("Last Name=="+searchRequest.getLastName());
@@ -39,25 +44,21 @@ public class LoanManagementController {
     }
 
 	@PostMapping("/addloan")
-    String addLoan(@RequestBody AddLoanRequest addLoanRequest) {
+    Map<String,String> addLoan(@RequestBody AddLoanRequest addLoanRequest) {
         
-		System.out.println("first Name=="+addLoanRequest.getFirstName());
-		System.out.println("Last Name=="+addLoanRequest.getLastName());
-		System.out.println("Loan Number=="+addLoanRequest.getLoanNumber());
-		System.out.println("Address 1r=="+addLoanRequest.getAddress1());
-		System.out.println("Address 2=="+addLoanRequest.getAddress2());
-		System.out.println("City=="+addLoanRequest.getCity());
-		System.out.println("amount=="+addLoanRequest.getAmount());
-        
-		loanManagementService.addLoan(addLoanRequest);
 		
-        return "sucess";
+		loanManagementService.addLoan(addLoanRequest);
+		Map<String,String> resultMap = new HashMap<String,String>(); 
+		resultMap.put("Message", "Loan created Sucessfully");
+        return resultMap;
     }
 	
 	@PutMapping("/updateloan")
-    String updateLoan(@RequestBody UpdateRequest updateRequest) {
+	Map<String,String> updateLoan(@RequestBody UpdateRequest updateRequest) {
 		loanManagementService.updateLoan(updateRequest);
-		return "updated Sucessfully";
+		Map<String,String> resultMap = new HashMap<String,String>(); 
+		resultMap.put("Message", "Loan created Sucessfully");
+        return resultMap;
 	}
 
 	

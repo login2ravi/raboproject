@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {User} from '../model/User.model';
+import {AuthenticateService} from './authenticate.service';
 
 
 @Injectable({
@@ -25,9 +26,10 @@ currentUser: User;
 private userData$: BehaviorSubject<User>;
 private currentScreen$: BehaviorSubject<string>;
 
-  constructor() {
+  constructor( ) {
     this.userData$ = new BehaviorSubject(null);
     this.currentScreen$ = new BehaviorSubject(null);
+
    }
 
    getUserData(){
@@ -49,6 +51,10 @@ private currentScreen$: BehaviorSubject<string>;
 
 
   public validateUserDetails( user: User): User{
+    
+    
+    let token = sessionStorage.getItem('token');
+    console.log("token from session ===="+token);
     const newUser = new User();
     for ( let usr of this.userDetails){
       if (usr.Username === user.userName && usr.Password === user.password){
@@ -66,4 +72,7 @@ private currentScreen$: BehaviorSubject<string>;
     }
     return newUser;
   }
+
+
+
 }

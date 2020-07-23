@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import com.rabo.lms.exception.*;
 
 
 @Component
@@ -27,7 +28,7 @@ public class JwtAuthorizer implements Authorizer{
             Claims claims = Jwts.parser().setSigningKey("rabo").parseClaimsJws(token).getBody();
             return claims;
         } catch (Exception ex) {
-            throw ex;
+        	 throw new BusinessException (ErrorCode.INVALID_HEADER, "Invalid Authorization header", ex);
         }
 	}
 

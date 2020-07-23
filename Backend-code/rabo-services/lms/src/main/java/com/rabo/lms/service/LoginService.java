@@ -21,8 +21,20 @@ public class LoginService {
 		System.out.println("Inside service ");
 		User user = loginRepo.findByUserName(loginRequest.getUserName());
 		System.out.println("Inside service Ends");
-		if(user != null) { 
+		System.out.println("iiii="+user.getUserName());
+		if(user != null && user.getPassword().equals(loginRequest.getPassword())) { 
 			return authorizer.generateToken(loginRequest.getUserName());	
+		}
+		return null;
+	}
+	
+	
+	public User getUserDetails(LoginRequest loginRequest) {
+		
+		User user = loginRepo.findByUserName(loginRequest.getUserName());
+		
+		if(user != null && user.getPassword().equals(loginRequest.getPassword())) { 
+			return user;	
 		}
 		return null;
 	}

@@ -6,6 +6,8 @@ import {SearchResult} from '../model/Search.model'
 import { UsersService } from '../service/users.service';
 import { User } from '../model/User.model';
 import {DataService} from '../service/data.service';
+import { CustomerDetails } from '../model/CustomerDetails.model';
+import { AuthenticateService } from '../service/authenticate.service';
 
 @Component({
   selector: 'app-search',
@@ -16,16 +18,19 @@ import {DataService} from '../service/data.service';
 
 
 export class SearchComponent implements OnInit {
-  resultList: Array<SearchResult>;
+  resultList: Array<CustomerDetails>;
   isLoggedIn  = false;
   isAdminUser = false;
   msg: User;
+  childTest = 'Checking child test ';
   constructor( private userservice: UsersService,
                private searchService: SearchService,
                private router: Router,
-               private route: ActivatedRoute) { }
+               private route: ActivatedRoute,
+               private authenticateService:AuthenticateService) { }
 
   ngOnInit(): void {
+    console.log("Search session=="+sessionStorage.getItem('token'));
     this.route.queryParams.subscribe(params => {
       this.isLoggedIn = params['isLoggedIn'];
       this.isAdminUser = params['isAdmin'];
@@ -44,14 +49,14 @@ export class SearchComponent implements OnInit {
 
      this.isAdminUser = this.msg.isAdminUser;
 
+     this.authenticateService.getSearchDetails(form.value.searchData.firstName,
+      form.value.searchData.lastName, form.value.searchData.loanNumber);
      this.resultList = this.searchService.searchLoanDetail(form.value.searchData.firstName,
       form.value.searchData.lastName, form.value.searchData.loanNumber);
-     //this.router.navigate(['/search/search-result']);
+     this.searchService.setSearchResult(this.resultList);
+     this.router.navigate(['/search', 'search-result'],
+     { queryParams: { isLoggedIn: this.isLoggedIn, isAdmin: this.isAdminUser } });
   }
 
-  onEdit(loanNumber: number): void{
-    this.router.navigate(['/update-loan'],
-    { queryParams: { loanNumber, isLoggedIn: this.isLoggedIn, isAdmin: this.isAdminUser  } });
-  }
-
+  
 }

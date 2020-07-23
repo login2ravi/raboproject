@@ -13,6 +13,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddLoanComponent } from './add-loan/add-loan.component';
 import { UpdateLoanComponent } from './update-loan/update-loan.component';
 import { RouterModule, Router } from '@angular/router';
+import { SearchResult } from './model/Search.model';
+import { SearchResultComponent } from './search/search-result/search-result.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,13 +27,16 @@ import { RouterModule, Router } from '@angular/router';
     HeaderComponent,
     LogoutComponent,
     AddLoanComponent,
-    UpdateLoanComponent
+    UpdateLoanComponent,
+    SearchResultComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
 
   providers:[UsersService, GlobalDataService],

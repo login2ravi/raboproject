@@ -6,6 +6,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddLoanComponent } from './add-loan/add-loan.component';
 import { UpdateLoanComponent } from './update-loan/update-loan.component';
 import { SearchResult } from './model/Search.model';
+import { SearchResultComponent } from './search/search-result/search-result.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path : 'user-login', component : UserLoginComponent},
   {path : 'search', component : SearchComponent,
       children:[
-        { path: 'search-result', component: SearchResult }
+        { path: 'search-result', component: SearchResultComponent }
       ]},
   {path : 'logout', component : LogoutComponent},
   {path : 'add-loan', component : AddLoanComponent},

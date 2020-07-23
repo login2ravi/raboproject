@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     this.userLogin = uname;
   }
   ngOnInit(): void {
+    
      this.userservice.getUserData().subscribe(
       userData$ => {
         if (userData$ != null){
