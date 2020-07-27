@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddLoanComponent } from './add-loan.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 describe('AddLoanComponent', () => {
   let component: AddLoanComponent;
@@ -10,7 +11,7 @@ describe('AddLoanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,FormsModule],
+      imports: [RouterTestingModule,FormsModule,HttpClient],
       declarations: [ AddLoanComponent ]
     })
     .compileComponents();

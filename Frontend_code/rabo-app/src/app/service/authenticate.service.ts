@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { CustomerDetails } from '../model/CustomerDetails.model';
+import { VirtualTimeScheduler } from 'rxjs';
 
 class LoginUser{
   username: string;
@@ -25,11 +27,9 @@ export class AuthenticateService {
 
     return this.httpClient.post<string>('http://localhost:7000/login',
     {"userName":username,"password":password},{headers});
-    
-    
   }
 
-
+  cust :Array<CustomerDetails>;
   getSearchDetails(firstName,lastName,loanNumber){
     const headers = { 
       'Access-Control-Allow-Origin': 'http://localhost:4200/*'
@@ -46,12 +46,7 @@ export class AuthenticateService {
 
 
 
-this.httpClient.get('http://localhost:7000/secure/search',httpOptions).subscribe(
-  responseData => {
-    console.log("Response data =="+responseData);
-  });
-
-
-  }
+return this.httpClient.get<CustomerDetails[]>('http://localhost:7000/secure/search',httpOptions);
+}
 
 }

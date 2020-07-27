@@ -18,10 +18,9 @@ public class LoginService {
 	  Authorizer authorizer;
 	
 	public String loginUser(LoginRequest loginRequest) {
-		System.out.println("Inside service ");
+		
 		User user = loginRepo.findByUserName(loginRequest.getUserName());
-		System.out.println("Inside service Ends");
-		System.out.println("iiii="+user.getUserName());
+		
 		if(user != null && user.getPassword().equals(loginRequest.getPassword())) { 
 			return authorizer.generateToken(loginRequest.getUserName());	
 		}

@@ -3,12 +3,14 @@ package com.rabo.lms.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.rabo.lms.entity.LoanDetail;
-import com.rabo.lms.model.AddLoanRequest;
+import com.rabo.lms.exception.BusinessException;
+import com.rabo.lms.exception.ErrorCode;
+import com.rabo.lms.model.CustomerDetails;
 import com.rabo.lms.model.SearchRequest;
-import com.rabo.lms.model.UpdateRequest;
 import com.rabo.lms.repo.LoanRepo;
 
 @Service
@@ -22,27 +24,42 @@ public class LoanManagementService {
 		return loanDetailsList;
 	}
 	
-	public void addLoan(AddLoanRequest loanRequest) {
+	public LoanDetail getLoanDetails(String loanNumber) {
+		LoanDetail loanDetails = loanRepo.findByLoanNumber(loanNumber); 
 		
-		LoanDetail newLoanDetail = new LoanDetail();
-		//newLoanDetail.setLoanDetailId(1002);
-		newLoanDetail.setFirstName(loanRequest.getFirstName());
-		newLoanDetail.setLastName(loanRequest.getLastName());
-		newLoanDetail.setLoanNumber(loanRequest.getLoanNumber());
-		newLoanDetail.setAddress1(loanRequest.getAddress1());
-		newLoanDetail.setAddress2(loanRequest.getAddress2());
-		newLoanDetail.setCity(loanRequest.getCity());
+		return loanDetails;
+	}
+	
+	public void addLoan(CustomerDetails loanRequest) {
 		
-		loanRepo.save(newLoanDetail);
+		try {
+		
+			LoanDetail newLoanDetail = new LoanDetail();
+			newLoanDetail.setFirstName(loanRequest.getFirstName());
+			newLoanDetail.setLastName(loanRequest.getLastName());
+			newLoanDetail.setLoanNumber(loanRequest.getLoanNumber());
+			newLoanDetail.setAddress1(loanRequest.getAddress1());
+			newLoanDetail.setAddress2(loanRequest.getAddress2());
+			newLoanDetail.setCity(loanRequest.getCity());
+			
+			loanRepo.save(newLoanDetail);
+			
+		}catch(DataAccessException e) {
+			
+			throw new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists",e);
+		}
+		
 	}
 	
 	
-public void updateLoan(UpdateRequest updateRequest) {
+public void updateLoan(CustomerDetails updateRequest) {
 		
 		LoanDetail loanDetail = loanRepo.findByLoanNumber(updateRequest.getLoanNumber());
 	
 		loanDetail.setLoanTerm(updateRequest.getLoanTerm());
 		loanDetail.setLoanType(updateRequest.getLoanType());
+		
+		loanDetail.setAmount(updateRequest.getAmount()); 
 		loanRepo.save(loanDetail);
 	}
 	

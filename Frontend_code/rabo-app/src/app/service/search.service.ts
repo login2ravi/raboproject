@@ -36,14 +36,14 @@ export class SearchService {
     dataService.loan.push(customerDetails);
   }
 
-  public searchLoanDetail(firstName: String,lastName: String,loanNumber: number): Array<CustomerDetails>{
+  public searchLoanDetail(firstName: String,lastName: String,loanNumber: string): Array<CustomerDetails>{
     const resultList  = new Array<CustomerDetails>();
     const dataService = new DataService();
 
 
     let searchResult = null;
     for(let loan of dataService.loan){
-      if(loan.firstName === firstName || loan.lastName === lastName || loan.loanNumber === loanNumber){
+      if(loan.firstName === firstName || loan.lastName === lastName || loan.loanNumber == loanNumber){
         searchResult = new CustomerDetails();
         searchResult.firstName = loan.firstName;
         searchResult.lastName = loan.lastName;

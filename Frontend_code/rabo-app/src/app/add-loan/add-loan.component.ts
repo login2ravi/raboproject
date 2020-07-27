@@ -5,6 +5,8 @@ import {LoanService} from '../service/loan.service'
 import {CustomerDetails} from '../model/CustomerDetails.model'
 import { DataService } from '../service/data.service';
 import { UsersService } from '../service/users.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-add-loan',
@@ -15,7 +17,8 @@ export class AddLoanComponent implements OnInit {
   customerDetailModel: CustomerDetails;
   isLoggedIn = false;
   isAdminUser = false;
-
+  msg: string;
+  loanDetails: CustomerDetails = new CustomerDetails();
 
   constructor(private userservice: UsersService,
               private loanService: LoanService,
@@ -35,15 +38,24 @@ export class AddLoanComponent implements OnInit {
   onSubmit(form: NgForm): void{
     const dataService = new DataService();
 
-    this.customerDetailModel = new CustomerDetails();
-    this.customerDetailModel.firstName = form.value.addLoanData.firstName;
-    this.customerDetailModel.lastName = form.value.addLoanData.lastName;
-    this.customerDetailModel.loanNumber = form.value.addLoanData.loanNumber;
-    this.customerDetailModel.address1 = form.value.addLoanData.address1;
-    this.customerDetailModel.address2 = form.value.addLoanData.address2;
-    this.customerDetailModel.city = form.value.addLoanData.city;
+    this.loanService.addLoan(this.loanDetails).subscribe(responseData => {
+      this.msg = responseData['Message'];
+    }, (errorMessage) =>{
+      console.log("Error code"+errorMessage.status);
+      console.log("Error Message"+errorMessage.error.code);
+      
+      if(errorMessage.status === 400){
+        this.msg = errorMessage.error.message;
+      }else if(errorMessage.status === 500){
+      this.msg = 'Application not currently avaliable. Please try again later';
+      }
+      
 
-    this.loanService.saveLoanDetails(this.customerDetailModel);
+  }
+    );
+
+    //this.loanDetails = new CustomerDetails();
+    form.resetForm();
   }
 
 }

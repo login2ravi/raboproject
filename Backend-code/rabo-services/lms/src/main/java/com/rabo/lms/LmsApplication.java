@@ -33,7 +33,7 @@ public class LmsApplication {
 	
 	@Bean
 	FilterRegistrationBean filterRegistrationBean() {
-		System.out.println("**********inside filter Registration bean");
+		
 		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
 		registrationBean.setFilter(securityFilter );
 		registrationBean.addUrlPatterns("/secure/*");

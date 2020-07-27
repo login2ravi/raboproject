@@ -38,7 +38,7 @@ public class CommonExceptionHandler {
 	    }
 
 	    private ResponseEntity<ErrorResponse> generateErrorResponse(ErrorCode errorCode, String message, Exception ex) {
-	    	System.out.println("Inside generate Error Response Method");
+	    	
 	        //logger.error("Exception Stack", ex);
 	    	ex.printStackTrace();
 	        ErrorResponse errorResponse = new ErrorResponse(errorCode.code, message);

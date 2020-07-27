@@ -28,41 +28,11 @@ public class loginDetailsController {
 	@Autowired
 	LoginService loginService;
 	
-	  
-	@GetMapping("/admin")
-	public String admin() {
-		return "Hello World Testing";
-	}
-	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	Map<String,String> validateUser(@RequestBody LoginRequest loginRequest) {
         
-		System.out.println("username=="+loginRequest.getUserName());
-		System.out.println("password=="+loginRequest.getPassword());
-		if(loginService==null) {
-			System.out.println("login service is null");
-		}
         String token= loginService.loginUser(loginRequest);
-        System.out.println("*****Token="+token);
         logger.debug("Token =="+token);
-//        if(user == null) {
-//        	System.out.println("User is null");
-//        }
-//        System.out.println("user--username=="+user.getUserName());
-//		System.out.println("user--password=="+user.getPassword());
-//		System.out.println("user--role=="+user.getUserRole());
-		
-		
-//        ObjectMapper mapper = new ObjectMapper();
-//        //Converting the Object to JSONString
-//        String jsonString=null;
-//        
-//		try {
-//			jsonString = mapper.writeValueAsString(user);
-//		} catch (JsonProcessingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
         
         Map<String,String> resultMap = new HashMap<String,String>();
         if(token != null) {
@@ -74,7 +44,4 @@ public class loginDetailsController {
 		
         return resultMap;
     }
-	
-	
-	
 }

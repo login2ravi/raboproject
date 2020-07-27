@@ -8,12 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rabo.lms.controller.LoanManagementController;
 import com.rabo.lms.exception.BusinessException;
 import com.rabo.lms.exception.ErrorCode;
 import com.rabo.lms.model.ErrorResponse;
@@ -22,7 +25,10 @@ import io.jsonwebtoken.Claims;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
-
+	
+	Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
+	
+	
     @Autowired
     Authorizer authorizer;
 
@@ -31,14 +37,13 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-    	System.out.println("Dofilter starting");
+    	logger.info("SecurityFilter.doFilterInternal begins");
 
         if(httpServletRequest.getMethod().equals("OPTIONS")) {
         	filterChain.doFilter(httpServletRequest, httpServletResponse);
         }else {
             final String jwtToken = httpServletRequest.getHeader("Authorization");
         	try {
-            	System.out.println("token =="+jwtToken);
                 if (jwtToken != null && jwtToken.startsWith("Bearer ")) {
                     Claims claims = authorizer.validateToken(jwtToken);
 
@@ -56,7 +61,6 @@ public class SecurityFilter extends OncePerRequestFilter {
                 }
             } catch (Exception e) {
             	
-            	System.out.println("Dofilter Exception.......");
                 logger.error("Authorization header is invalid/not found", e);
                 	ErrorResponse errorResponse = new ErrorResponse(ErrorCode.INVALID_HEADER.toString(), "Authorization header is invalid/not found");
 
@@ -70,7 +74,6 @@ public class SecurityFilter extends OncePerRequestFilter {
     }
 
     private Boolean isTokenExpired(Claims claims) {
-    	System.out.println("isTokenExpired starts.......");
         Date expirationDate = claims.getExpiration();
         Date currentDate = new Date();
         return expirationDate.before(currentDate);

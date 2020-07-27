@@ -7,22 +7,26 @@ import { UsersService } from '../service/users.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import {Observable} from 'rxjs';
 import {BrowserModule , By} from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthenticateService } from '../service/authenticate.service';
 
-const userServiceSpy = jasmine.createSpyObj<UsersService>('UsersService', ['validateUserDetails', 'setUserData','setCurrentScreen']);
+//const userServiceSpy = jasmine.createSpyObj<UsersService>('UsersService', ['validateUserDetails', 'setUserData','setCurrentScreen']);
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;
   let fixture: ComponentFixture<UserLoginComponent>;
   let usersService: UsersService;
+  let authenticateService : AuthenticateService;
+  
 
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,FormsModule],
+      imports: [RouterTestingModule,FormsModule,HttpClientModule],
       declarations: [ UserLoginComponent ],
       providers: [
-        {provide: UsersService,
-        useValue: userServiceSpy}
+        {provide: [UsersService, authenticateService]}
       ]
 
     })
@@ -40,58 +44,19 @@ describe('UserLoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create with components1', () => {
-    let el = fixture.debugElement.query(By.css('form')).nativeElement;
-    el.username.value = 'admin';
-    fixture.detectChanges();
-    
-    let button = fixture.debugElement.query(By.css('button')).nativeElement;
-    button.click();
-    //expect(component.onSubmit).toHaveBeenCalledTimes(1);
+  
+  it('should component valiated', () => {
+    //fixture.detectChanges();
+    //let firstNameValidationError: DebugElement;
+  console.log("before detect changes")    
+    //fixture.detectChanges(); // run change detection
 
-    //console.log("****%%%==="+el.username.value);
-    console.log("User object=="+component.user.userName);
-  });
+    console.log("After*** detect changes")    
+   // firstNameValidationError = fixture.debugElement.query(By.css('text-danger'));
 
-  it('should create with components', () => {
-    fixture.detectChanges();
-    component.user.userName = 'admin';
-    component.user.password = 'admin123'
-  //  let result = component.onSubmit();
-    //expect(result.isAdmin).toBeTruthy();
-
-   // let myuser = {
-   //   User: {userName: string, password: string}();
-   // }
-   
-
-   let user: User
-    user = new User();
-    user.isAdminUser = true;
-    user.userName='admin';
-    user.password='admin123456';
-    user.isLoggedIn=true;
-    //console.log("User admin =="+user.isAdminUser)
-//    let service = fixture.debugElement.injector.get(UsersService);
-    userServiceSpy.validateUserDetails.and.returnValue(user);
-    let myservice = new UsersService();
-    let spy: any;
-    spy = spyOn(myservice, 'validateUserDetails').and.returnValue(user);
-
-
-
-    component.user.userName='admin';
-    component.user.password='admin123';
-    component.user.isAdminUser=false;
-    component.user.isLoggedIn=false;
-    component.onSubmit();
-    fixture.detectChanges();
-    //expect(component.user.isAdminUser).toEqual(user.isAdminUser);    
-    console.log("*********"+component.user.isAdminUser);
-    console.log("******spy***"+spy);
-    //expect(component.invalidUserMessage).toEqual('');    
-    //expect(userServiceSpy.validateUserDetails).toHaveBeenCalled();
-
+    // the validation error should be found:
+    //expect(firstNameValidationError).toBeTruthy();
+    expect(component).toBeTruthy();
 
   });
 

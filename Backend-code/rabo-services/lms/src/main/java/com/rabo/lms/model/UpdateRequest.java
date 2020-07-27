@@ -5,7 +5,7 @@ public class UpdateRequest {
 	private String loanNumber;
 	private String loanType;
 	private long loanTerm;
-	private long amount;
+	private Long amount;
 	public String getLoanNumber() {
 		return loanNumber;
 	}
@@ -24,10 +24,10 @@ public class UpdateRequest {
 	public void setLoanTerm(long loanTerm) {
 		this.loanTerm = loanTerm;
 	}
-	public long getAmount() {
+	public Long getAmount() {
 		return amount;
 	}
-	public void setAmount(long amount) {
+	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
 	

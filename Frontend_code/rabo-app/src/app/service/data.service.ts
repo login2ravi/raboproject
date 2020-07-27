@@ -20,7 +20,7 @@ export class DataService {
     let customerDetails = new CustomerDetails();
     customerDetails.firstName = 'rahul';
     customerDetails.lastName = 'dravid';
-    customerDetails.loanNumber = 1001;
+    customerDetails.loanNumber = '1001';
     customerDetails.address1 = 'addr1';
     customerDetails.address2 = 'addr2';
     customerDetails.city = 'chennai';
@@ -30,7 +30,7 @@ export class DataService {
     customerDetails = new CustomerDetails();
     customerDetails.firstName = 'sahin';
     customerDetails.lastName = 'tendulkar';
-    customerDetails.loanNumber = 1002;
+    customerDetails.loanNumber = '1002';
     customerDetails.address1 = 'addr1';
     customerDetails.address2 = 'addr2';
     customerDetails.city = 'mumbai';

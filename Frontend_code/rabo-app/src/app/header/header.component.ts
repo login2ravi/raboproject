@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {
     
+    
      this.userservice.getUserData().subscribe(
       userData$ => {
         if (userData$ != null){
@@ -29,6 +30,16 @@ export class HeaderComponent implements OnInit {
         }
         return userData$;
       });
+
+     if (sessionStorage.getItem('username') != null){
+        this.isloggin = true;
+        this.isAdminUser = (sessionStorage.getItem('userrole') === 'admin') ? true : false;
+      }else{
+        this.isloggin = false;
+      }
+
+      
+
 
 
 
@@ -43,7 +54,7 @@ export class HeaderComponent implements OnInit {
 
 
   getcurrentScreen(element: string): string{
-    if( this.currentScreen === element){
+    if ( this.currentScreen === element){
       return 'active';
     }else{
       return '';

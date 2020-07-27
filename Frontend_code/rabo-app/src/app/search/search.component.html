@@ -11,7 +11,7 @@
         <div>
           <div class="col-xs-4 col-sm-5">
             <input type="text" class="form-control" placeholder="first name" 
-            ngModel 
+            [(ngModel)]="loanDetails.firstName"
             name="firstName" 
             
             #firstname="ngModel" />
@@ -19,21 +19,25 @@
           <div class="col-xs-4 col-sm-5">
             
             <input type="text" class="form-control" placeholder="last name" 
-            ngModel 
+            [(ngModel)]="loanDetails.lastName"
             name="lastName" 
             #lastName="ngModel" />
           </div>
 
           <div class="col-xs-4 col-sm-5">
             <input type="text" class="form-control" placeholder="loan number" 
-            ngModel 
+            [(ngModel)]="loanDetails.loanNumber"
             name="loanNumber" 
             #loanNumber="ngModel" />
           </div>
           <div class="col-xs-4 col-sm-5">
-            <button class="btn btn-primary" type="submit"  >Search</button>
-            <a [routerLink]="">Admin User</a>
-          
+            <span>
+            <button class="btn btn-primary" type="submit" [disabled] = "!f.valid" >Search</button>
+          </span>
+          &nbsp;
+          <span>
+            <button class="btn btn-primary" (click)="f.reset()">Clear</button>
+          </span>
           </div>
             
             

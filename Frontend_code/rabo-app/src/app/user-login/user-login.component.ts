@@ -53,7 +53,7 @@ constructor(private userservice: UsersService, private router: Router,private au
         this.invalidUserMessage = 'Invalid Username/Password';
        }
     }, errorMessage =>{
-      console.log("Error Message");
+      console.log("Error Message"+errorMessage.errorCode);
       this.invalidUserMessage = 'Application not currently avaliable. Please try again later';
     });
   }

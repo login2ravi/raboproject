@@ -30,8 +30,10 @@ export class SearchResultComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.isLoggedIn = params['isLoggedIn'];
-      this.isAdminUser = params['isAdmin'];
+      this.isAdminUser = (params['isAdmin']==='admin')?true:false;
     });
+
+    console.log("Search result userrole ==="+this.isAdminUser);
 
   }
 
