@@ -25,7 +25,7 @@ export class AuthenticateService {
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token' };
 
-    return this.httpClient.post<string>('http://localhost:7000/login',
+    return this.httpClient.post<string>('http://localhost:7000/loan-management-service/login',
     {"userName":username,"password":password},{headers});
   }
 

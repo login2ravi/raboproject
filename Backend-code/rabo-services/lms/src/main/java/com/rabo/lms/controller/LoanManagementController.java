@@ -34,6 +34,7 @@ public class LoanManagementController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
     List<LoanDetail> search(SearchRequest searchRequest) {
+		logger.info("Inside Search method");
 		return loanManagementService.search(searchRequest);
     }
 	

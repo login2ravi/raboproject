@@ -84,13 +84,10 @@ class LoanManagementControllerTest {
 				//.andExpect(MockMvcResultMatchers.status().isOk());
 		try {
 			MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-			
-					//.andExpect  status.isOk());
-			
 			//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 		

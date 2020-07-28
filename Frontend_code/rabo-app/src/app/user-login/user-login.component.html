@@ -10,13 +10,15 @@
                     <br>
                     <div class="col-xs-4 col-sm-5" style="color: red;" >{{invalidUserMessage}}</div>
                   <div class="col-xs-4 col-sm-5">
-                    <input type="username" class="form-control" placeholder="username" 
+                    <input type="username" class="form-control"
+                    
+                     id="username" placeholder="username" 
                     [(ngModel)]="user.userName"
                     name="username"
                     #username="ngModel" 
                     required
                     [class.is-invalid]="username.invalid && username.touched" />
-                    <small class="text-danger" [class.d-none] ="username.valid || username.untouched"> User name is required field</small>
+                    <small id="username_error" class="text-danger" [class.d-none] ="username.valid || username.untouched"> User name is required field</small>
                   </div>
                   
                   <br>

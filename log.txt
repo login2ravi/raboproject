@@ -1,0 +1,449 @@
+27 07 2020 10:18:39.961:WARN [karma]: No captured browser, open http://localhost:9876/
+27 07 2020 10:18:39.972:INFO [karma-server]: Karma v5.0.9 server started at http://0.0.0.0:9876/
+27 07 2020 10:18:39.972:INFO [launcher]: Launching browsers Chrome with concurrency unlimited
+27 07 2020 10:18:39.982:INFO [launcher]: Starting browser Chrome
+27 07 2020 10:18:54.231:WARN [karma]: No captured browser, open http://localhost:9876/
+27 07 2020 10:18:55.037:INFO [Chrome 84.0.4147.89 (Windows 10)]: Connected on socket 2ymNFNFye5fkL_N_AAAA with id 83655236
+Chrome 84.0.4147.89 (Windows 10): Executed 0 of 18[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 1 of 18[32m SUCCESS[39m (0 secs / 0.032 secs)
+[1A[2KLOG: [36m'before detect changes'[39m
+Chrome 84.0.4147.89 (Windows 10): Executed 1 of 18[32m SUCCESS[39m (0 secs / 0.032 secs)
+LOG: 'before detect changes'
+[1A[2KLOG: [36m'After*** detect changes'[39m
+Chrome 84.0.4147.89 (Windows 10): Executed 1 of 18[32m SUCCESS[39m (0 secs / 0.032 secs)
+LOG: 'After*** detect changes'
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) UserLoginComponent should component valiated FAILED[39m
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:66:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 2 of 18[31m (1 FAILED)[39m (0 secs / 0.33 secs)
+Chrome 84.0.4147.89 (Windows 10) UserLoginComponent should component valiated FAILED
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:66:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) UserLoginComponent should create FAILED[39m
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	TypeError: Cannot read property 'detectChanges' of undefined
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:43:13)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+Chrome 84.0.4147.89 (Windows 10): Executed 3 of 18[31m (2 FAILED)[39m (0 secs / 0.338 secs)
+Chrome 84.0.4147.89 (Windows 10) UserLoginComponent should create FAILED
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	TypeError: Cannot read property 'detectChanges' of undefined
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:43:13)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) UserLoginComponent form invalid when empty FAILED[39m
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	TypeError: Cannot read property 'debugElement' of undefined
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:49:22)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+Chrome 84.0.4147.89 (Windows 10): Executed 4 of 18[31m (3 FAILED)[39m (0 secs / 0.349 secs)
+Chrome 84.0.4147.89 (Windows 10) UserLoginComponent form invalid when empty FAILED
+	Error: unreachable
+	    at injectableDefOrInjectorDefFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11271:1)
+	    at providerToFactory (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11333:1)
+	    at providerToRecord (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11298:1)
+	    at R3Injector.processProvider (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11196:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1
+	    at <Jasmine>
+	    at deepForEach (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:1134:1)
+	    at R3Injector.processInjectorType (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11182:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10989:1
+	TypeError: Cannot read property 'debugElement' of undefined
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/user-login/user-login.component.spec.ts:49:22)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) SearchComponent should create FAILED[39m
+	NullInjectorError: R3InjectorError(DynamicTestModule)[SearchService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'SearchService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.SearchService_Factory [as factory] (ng:///SearchService/ɵfac.js:5:41)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/search/search.component.spec.ts:26:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 5 of 18[31m (4 FAILED)[39m (0 secs / 0.394 secs)
+Chrome 84.0.4147.89 (Windows 10) SearchComponent should create FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[SearchService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'SearchService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.SearchService_Factory [as factory] (ng:///SearchService/ɵfac.js:5:41)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/search/search.component.spec.ts:26:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) SearchResultComponent should create FAILED[39m
+	NullInjectorError: R3InjectorError(DynamicTestModule)[Router -> Router]: 
+	  NullInjectorError: No provider for Router!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'Router', 'Router' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	    at getOrCreateInjectable (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3805:1)
+	    at ɵɵdirectiveInject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:13733:1)
+	    at NodeInjectorFactory.SearchResultComponent_Factory [as factory] (ng:///SearchResultComponent/ɵfac.js:5:49)
+	    at getNodeInjectable (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3913:1)
+	    at instantiateRootComponent (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:7837:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/search/search-result/search-result.component.spec.ts:23:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 6 of 18[31m (5 FAILED)[39m (0 secs / 0.429 secs)
+Chrome 84.0.4147.89 (Windows 10) SearchResultComponent should create FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[Router -> Router]: 
+	  NullInjectorError: No provider for Router!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'Router', 'Router' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	    at getOrCreateInjectable (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3805:1)
+	    at ɵɵdirectiveInject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:13733:1)
+	    at NodeInjectorFactory.SearchResultComponent_Factory [as factory] (ng:///SearchResultComponent/ɵfac.js:5:49)
+	    at getNodeInjectable (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3913:1)
+	    at instantiateRootComponent (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:7837:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/search/search-result/search-result.component.spec.ts:23:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 7 of 18[31m (5 FAILED)[39m (0 secs / 0.434 secs)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) AuthenticateService should be created FAILED[39m
+	NullInjectorError: R3InjectorError(DynamicTestModule)[AuthenticateService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AuthenticateService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.AuthenticateService_Factory [as factory] (ng:///AuthenticateService/ɵfac.js:5:47)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/service/authenticate.service.spec.ts:14:21)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 8 of 18[31m (6 FAILED)[39m (0 secs / 0.447 secs)
+Chrome 84.0.4147.89 (Windows 10) AuthenticateService should be created FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[AuthenticateService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'AuthenticateService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.AuthenticateService_Factory [as factory] (ng:///AuthenticateService/ɵfac.js:5:47)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/service/authenticate.service.spec.ts:14:21)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2KERROR: [36m''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'[39m
+Chrome 84.0.4147.89 (Windows 10): Executed 8 of 18[31m (6 FAILED)[39m (0 secs / 0.447 secs)
+ERROR: ''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 9 of 18[31m (6 FAILED)[39m (0 secs / 0.467 secs)
+[1A[2KERROR: [36m''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'[39m
+Chrome 84.0.4147.89 (Windows 10): Executed 9 of 18[31m (6 FAILED)[39m (0 secs / 0.467 secs)
+ERROR: ''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 10 of 18[31m (6 FAILED)[39m (0 secs / 0.476 secs)
+[1A[2KERROR: [36m''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'[39m
+Chrome 84.0.4147.89 (Windows 10): Executed 10 of 18[31m (6 FAILED)[39m (0 secs / 0.476 secs)
+ERROR: ''app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) AppComponent should render title FAILED[39m
+	TypeError: Cannot read property 'textContent' of null
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/app.component.spec.ts:33:51)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+Chrome 84.0.4147.89 (Windows 10): Executed 11 of 18[31m (7 FAILED)[39m (0 secs / 0.485 secs)
+Chrome 84.0.4147.89 (Windows 10) AppComponent should render title FAILED
+	TypeError: Cannot read property 'textContent' of null
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/app.component.spec.ts:33:51)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+	    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+	    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+	    at <Jasmine>
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) AddLoanComponent should create FAILED[39m
+	Error: Unexpected value 'HttpClient' imported by the module 'DynamicTestModule'. Please add an @NgModule annotation.
+	    at verifySemanticsOfNgModuleDef (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25598:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25609:1
+	    at <Jasmine>
+	    at verifySemanticsOfNgModuleDef (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25607:1)
+	    at Function.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25570:1)
+	    at R3TestBedCompiler.applyProviderOverridesToModule (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1318:1)
+	    at R3TestBedCompiler.compileTestModule (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1563:1)
+	    at R3TestBedCompiler.finalize (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1177:1)
+	    at TestBedRender3.get testModuleRef [as testModuleRef] (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:2006:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/add-loan/add-loan.component.spec.ts:27:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 12 of 18[31m (8 FAILED)[39m (0 secs / 0.492 secs)
+Chrome 84.0.4147.89 (Windows 10) AddLoanComponent should create FAILED
+	Error: Unexpected value 'HttpClient' imported by the module 'DynamicTestModule'. Please add an @NgModule annotation.
+	    at verifySemanticsOfNgModuleDef (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25598:1)
+	    at http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25609:1
+	    at <Jasmine>
+	    at verifySemanticsOfNgModuleDef (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25607:1)
+	    at Function.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25570:1)
+	    at R3TestBedCompiler.applyProviderOverridesToModule (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1318:1)
+	    at R3TestBedCompiler.compileTestModule (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1563:1)
+	    at R3TestBedCompiler.finalize (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1177:1)
+	    at TestBedRender3.get testModuleRef [as testModuleRef] (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:2006:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/add-loan/add-loan.component.spec.ts:27:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 13 of 18[31m (8 FAILED)[39m (0 secs / 0.51 secs)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 14 of 18[31m (8 FAILED)[39m (0 secs / 0.512 secs)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 15 of 18[31m (8 FAILED)[39m (0 secs / 0.538 secs)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) UpdateLoanComponent should create FAILED[39m
+	NullInjectorError: R3InjectorError(DynamicTestModule)[LoanService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'LoanService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.LoanService_Factory [as factory] (ng:///LoanService/ɵfac.js:5:39)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/update-loan/update-loan.component.spec.ts:28:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 16 of 18[31m (9 FAILED)[39m (0 secs / 0.565 secs)
+Chrome 84.0.4147.89 (Windows 10) UpdateLoanComponent should create FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[LoanService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'LoanService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.LoanService_Factory [as factory] (ng:///LoanService/ɵfac.js:5:39)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at Object.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:22201:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/update-loan/update-loan.component.spec.ts:28:23)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 17 of 18[31m (9 FAILED)[39m (0 secs / 0.571 secs)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) SearchService should be created FAILED[39m
+	NullInjectorError: R3InjectorError(DynamicTestModule)[SearchService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'SearchService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.SearchService_Factory [as factory] (ng:///SearchService/ɵfac.js:5:41)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/service/search.service.spec.ts:14:21)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+Chrome 84.0.4147.89 (Windows 10): Executed 18 of 18[31m (10 FAILED)[39m (0 secs / 0.574 secs)
+Chrome 84.0.4147.89 (Windows 10) SearchService should be created FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[SearchService -> HttpClient -> HttpClient]: 
+	  NullInjectorError: No provider for HttpClient!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'SearchService', 'HttpClient', 'HttpClient' ] })
+	    at <Jasmine>
+	    at NullInjector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:914:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11062:1)
+	    at injectInjectorOnly (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:800:1)
+	    at ɵɵinject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:804:1)
+	    at Object.SearchService_Factory [as factory] (ng:///SearchService/ɵfac.js:5:41)
+	    at R3Injector.hydrate (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11229:1)
+	    at R3Injector.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11051:1)
+	    at NgModuleRef$1.get (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:23936:1)
+	    at TestBedRender3.inject (http://localhost:9876/_karma_webpack_/node_modules/@angular/core/__ivy_ngcc__/fesm2015/testing.js:1930:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/src/app/service/search.service.spec.ts:14:21)
+	    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+	    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+[1A[2KChrome 84.0.4147.89 (Windows 10): Executed 18 of 18[31m (10 FAILED)[39m (0.729 secs / 0.574 secs)
+[31mTOTAL: 10 FAILED, 8 SUCCESS[39m
+TOTAL: 10 FAILED, 8 SUCCESS
+27 07 2020 10:19:52.299:WARN [Chrome 84.0.4147.89 (Windows 10)]: Disconnected (0 times)Client disconnected from CONNECTED state (ping timeout)
+[1A[2K[31mChrome 84.0.4147.89 (Windows 10) ERROR[39m
+  DisconnectedClient disconnected from CONNECTED state (ping timeout)
+Chrome 84.0.4147.89 (Windows 10): Executed 18 of 18[31m (10 FAILED)[39m (0.729 secs / 0.574 secs)
+Chrome 84.0.4147.89 (Windows 10) ERROR
+  DisconnectedClient disconnected from CONNECTED state (ping timeout)
+27 07 2020 10:19:57.583:INFO [Chrome 84.0.4147.89 (Windows 10)]: Connected on socket fI7IF4eQFW0FHll4AAAB with id 83655236
+27 07 2020 10:20:27.587:WARN [Chrome 84.0.4147.89 (Windows 10)]: Disconnected (0 times)Client disconnected from CONNECTED state (ping timeout)
+[31mChrome 84.0.4147.89 (Windows 10) ERROR[39m
+  DisconnectedClient disconnected from CONNECTED state (ping timeout)
+
+Chrome 84.0.4147.89 (Windows 10) ERROR
+  DisconnectedClient disconnected from CONNECTED state (ping timeout)
+27 07 2020 10:20:47.602:WARN [launcher]: Chrome was not killed in 2000 ms, sending SIGKILL.
+27 07 2020 10:20:49.602:WARN [launcher]: Chrome was not killed by SIGKILL in 2000 ms, continuing.
+Terminate batch job (Y/N)? 

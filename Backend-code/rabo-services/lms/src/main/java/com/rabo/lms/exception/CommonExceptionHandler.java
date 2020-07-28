@@ -1,5 +1,7 @@
 package com.rabo.lms.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -8,12 +10,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.rabo.lms.model.ErrorResponse;
+import com.rabo.lms.service.LoanManagementService;
 
 import io.jsonwebtoken.ExpiredJwtException;
 
 @ControllerAdvice
 public class CommonExceptionHandler {
-	
+	Logger logger = LoggerFactory.getLogger(CommonExceptionHandler.class);	
 	
 	
 	  @ExceptionHandler(BusinessException.class)
@@ -39,8 +42,8 @@ public class CommonExceptionHandler {
 
 	    private ResponseEntity<ErrorResponse> generateErrorResponse(ErrorCode errorCode, String message, Exception ex) {
 	    	
-	        //logger.error("Exception Stack", ex);
-	    	ex.printStackTrace();
+	        logger.error("Exception Stack", ex);
+	    	
 	        ErrorResponse errorResponse = new ErrorResponse(errorCode.code, message);
 	        return new ResponseEntity<ErrorResponse>(errorResponse, errorCode.httpStatus);
 	    }

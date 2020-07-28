@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserLoginComponent } from './user-login.component';
-import { NgForm, FormBuilder, FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { User } from '../model/User.model';
 import { UsersService } from '../service/users.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -23,10 +23,10 @@ describe('UserLoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,FormsModule,HttpClientModule],
+      imports: [RouterTestingModule, HttpClientModule, FormsModule],
       declarations: [ UserLoginComponent ],
       providers: [
-        {provide: [UsersService, authenticateService]}
+        UsersService, AuthenticateService,
       ]
 
     })
@@ -44,21 +44,22 @@ describe('UserLoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  
-  it('should component valiated', () => {
-    //fixture.detectChanges();
-    //let firstNameValidationError: DebugElement;
-  console.log("before detect changes")    
-    //fixture.detectChanges(); // run change detection
+  it('form invalid when empty', () => {
+    //fixture.debugElement.componentInstance.
+    var username_Ele = fixture.debugElement.query(By.css('#username'));
+    let element = fixture.debugElement.nativeElement;
+    element.querySelector('#username').value = 'admin';
+    console.log("**Before username****"+element.querySelector('#username'));
+    fixture.detectChanges();
+    //element.querySelector('#username').value = 'admin';
 
-    console.log("After*** detect changes")    
-   // firstNameValidationError = fixture.debugElement.query(By.css('text-danger'));
+    console.log("***4444444**"+element.querySelector('#username').className);
+    console.log("Username error===144444=="+element.querySelector('#username_error').className);
 
-    // the validation error should be found:
-    //expect(firstNameValidationError).toBeTruthy();
-    expect(component).toBeTruthy();
-
+    let usernameTxt = element.querySelector('#username');
+    
+    expect(element.querySelector('#username_error')).not.toBeDefined();
+    
   });
-
   
 });

@@ -2,10 +2,13 @@ package com.rabo.lms.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.rabo.lms.controller.LoanManagementController;
 import com.rabo.lms.entity.LoanDetail;
 import com.rabo.lms.exception.BusinessException;
 import com.rabo.lms.exception.ErrorCode;
@@ -15,6 +18,7 @@ import com.rabo.lms.repo.LoanRepo;
 
 @Service
 public class LoanManagementService {
+	Logger logger = LoggerFactory.getLogger(LoanManagementService.class);
 	
 	@Autowired
 	private LoanRepo loanRepo;
@@ -43,9 +47,9 @@ public class LoanManagementService {
 			newLoanDetail.setCity(loanRequest.getCity());
 			
 			loanRepo.save(newLoanDetail);
-			
+			logger.info("Add loan saved sucessfully");
 		}catch(DataAccessException e) {
-			
+			logger.error("Exception in AddLoan ",e);
 			throw new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists",e);
 		}
 		

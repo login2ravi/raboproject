@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import { UsersService } from '../service/users.service';
 import { Subscription } from 'rxjs';
 import { User } from '../model/User.model';
-import { HttpClient } from '@angular/common/http';
 import { AuthenticateService } from '../service/authenticate.service';
 
 
