@@ -22,51 +22,16 @@ export class LoanService{
    dataService.loan.push(customerDetails);
   }
 
-  // updateLoanDetailsold(loanDetails: LoanDetails): boolean{
-  //   const dataService = new DataService();
-  //   for(let dtl of dataService.loanDetailsAry){
-  //     if(dtl.loanNumber == loanDetails.loanNumber){
-  //       dtl.loanTerm = loanDetails.loanTerm;
-  //       dtl.loanType = loanDetails.loanType;
-  //     }
-  //   }
-
-  //   for(let loan of dataService.loan){
-  //     if(loan.loanNumber == loanDetails.loanNumber){
-  //       loan.amount = loanDetails.amount;
-  //     }
-  //   }
-  //   return true;
-  // }
-
-  // getLoanDetailsOld(loanNumber: number): LoanDetails{
-  //   const dataService = new DataService();
-  //   let result = new LoanDetails();
-  //   for(let dtl of dataService.loanDetailsAry){ 
-  //     if(dtl.loanNumber == loanNumber){
-  //      result = dtl;
-  //     }
-  //   }
-
-  //   for(let loan of dataService.loan){
-  //     if (loan.loanNumber == loanNumber){
-  //       result.amount = loan.amount;
-  //     }
-  //   }
-
-  //   return result;
-
-  // }
 
   updateLoan(customerDetails: CustomerDetails)  {
 
-    let token = sessionStorage.getItem('token');
-    console.log("Amount"+customerDetails.amount);
+    const token = sessionStorage.getItem('token');
+
     const headers = { 
                       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token',
-                       'Authorization':token};
+                       'Authorization' : token};
 
     return this.httpClient.put('http://localhost:7000/secure/updateloan',
      customerDetails,
@@ -75,35 +40,33 @@ export class LoanService{
 
 
   getLoanDetails(loanNumber){
-    
 
-    console.log("search token="+sessionStorage.getItem('token'));
-    let token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     const httpOptions = {
       headers: { 'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
-       'Authorization':token},
-      params: {'loanNumber': loanNumber}
+       'Authorization' : token}
+
     };
 
 
 
-return this.httpClient.get<CustomerDetails>('http://localhost:7000/secure/getloandetails',httpOptions);
+    return this.httpClient.get<CustomerDetails>('http://localhost:7000/secure/getloandetails/' + loanNumber, httpOptions);
 
   }
 
 
   addLoan(customerDetails: CustomerDetails)  {
 
-    let token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     
-    const headers = { 
+    const headers = {
                       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token',
                        'Authorization':token};
 
-    return this.httpClient.post('http://localhost:7000/secure/addloan',
+    return this.httpClient.post<any>('http://localhost:7000/secure/addloan',
     customerDetails,
     {headers});
   }

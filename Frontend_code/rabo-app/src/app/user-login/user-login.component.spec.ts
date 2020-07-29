@@ -37,28 +37,33 @@ describe('UserLoginComponent', () => {
     usersService = new UsersService();
     fixture = TestBed.createComponent(UserLoginComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+    //fixture.detectChanges();
+    expect(component.ngForm.valid).toBeFalsy();
   });
 
-  it('form invalid when empty', () => {
+  it('form invalid when empty', () => {  
     //fixture.debugElement.componentInstance.
     var username_Ele = fixture.debugElement.query(By.css('#username'));
     let element = fixture.debugElement.nativeElement;
-    element.querySelector('#username').value = 'admin';
-    console.log("**Before username****"+element.querySelector('#username'));
-    fixture.detectChanges();
-    //element.querySelector('#username').value = 'admin';
-
-    console.log("***4444444**"+element.querySelector('#username').className);
-    console.log("Username error===144444=="+element.querySelector('#username_error').className);
-
-    let usernameTxt = element.querySelector('#username');
     
-    expect(element.querySelector('#username_error')).not.toBeDefined();
+    console.log("Checking1111 ngform =="+component.ngForm);
+    
+    console.log("***AFt**"+element.querySelector('#username').className);  
+    console.log("***AFT**"+element.querySelector('#username_error').className);
+    element.querySelector('#username').value = 'admin';
+    
+    fixture.detectChanges();
+    element.querySelector('#username').value = undefined;
+    fixture.detectChanges();
+    console.log("***AFT2222**"+element.querySelector('#username').className);  
+    console.log("*AFT2222**"+element.querySelector('#username_error').className);
+  
+
+    expect(element.querySelector('#username_error').className).not.toContain('d-none');
     
   });
   

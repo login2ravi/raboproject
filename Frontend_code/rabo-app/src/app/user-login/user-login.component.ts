@@ -16,6 +16,7 @@ export class UserLoginComponent implements OnInit {
 public userData$: Subscription;
 public invalidUserMessage: String;
 user: User = new User();
+@ViewChild(NgForm) ngForm: NgForm;
 
 constructor(private userservice: UsersService, private router: Router,private authenticateService: AuthenticateService) {
   sessionStorage.setItem('username',null);
@@ -28,17 +29,17 @@ constructor(private userservice: UsersService, private router: Router,private au
   onSubmit(): void{
     //var returnvalue = this.authenticateService.authenticate(this.user.userName,this.user.password);
     this.authenticateService.authenticate(this.user.userName,this.user.password).subscribe(responseData => {
-      let tokenStr= 'Bearer '+responseData['token'];
-      
+      const tokenStr = 'Bearer ' + responseData['token'];
+
       if(responseData['token'] != null){
-        sessionStorage.setItem('username',responseData['username']);
-        sessionStorage.setItem('token',tokenStr);
-        console.log("Login screen token=="+sessionStorage.getItem('token'));
-        sessionStorage.setItem('userrole',responseData['userrole']);
-        let userDtl = new User();
+        sessionStorage.setItem('username', responseData['username']);
+        sessionStorage.setItem('token', tokenStr);
+
+        sessionStorage.setItem('userrole', responseData['userrole']);
+        const userDtl = new User();
         userDtl.userName = sessionStorage.getItem('username');
-        console.log("user role=="+sessionStorage.getItem('userrole'));
-        if(sessionStorage.getItem('userrole') === 'admin'){
+
+        if ( sessionStorage.getItem('userrole') === 'admin'){
           userDtl.isAdminUser = true;
         }else{
           userDtl.isAdminUser = false;
@@ -51,8 +52,8 @@ constructor(private userservice: UsersService, private router: Router,private au
       }else{
         this.invalidUserMessage = 'Invalid Username/Password';
        }
-    }, errorMessage =>{
-      console.log("Error Message"+errorMessage.errorCode);
+    }, errorMessage => {
+
       this.invalidUserMessage = 'Application not currently avaliable. Please try again later';
     });
   }

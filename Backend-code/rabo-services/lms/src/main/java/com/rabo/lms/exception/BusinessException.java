@@ -20,4 +20,22 @@ public class BusinessException extends RuntimeException {
         this.message = message;
         this.originalException = exception;
     }
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public ErrorCode getErrorCode() {
+		return errorCode;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public Exception getOriginalException() {
+		return originalException;
+	}
+    
+    
 }

@@ -7,13 +7,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
 @Entity
 @Table(name="Loan_details")
 public class LoanDetail {
 	
 	@Id  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="loan_detail_id")
-	private long loanDetailId; 
+	private Long loanDetailId; 
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -40,70 +47,22 @@ public class LoanDetail {
 	private String loanType;
 	
 	@Column(name="loan_term")
-	private long loanTerm;
+	private Long loanTerm;
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getLoanNumber() {
-		return loanNumber;
-	}
-	public void setLoanNumber(String loanNumber) {
-		this.loanNumber = loanNumber;
-	}
-	public Long getAmount() {
-		return amount;
-	}
-	public void setAmount(Long amount) {
-		this.amount = amount;
-	}
-	public String getAddress1() {
-		return address1;
-	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public long getLoanDetailId() {
-		return loanDetailId;
-	}
-	public void setLoanDetailId(long loanDetailId) {
+	public LoanDetail(Long loanDetailId, String firstName, String lastName, String loanNumber, Long amount, String address1, 
+			String address2, String city, String loanType, Long loanTerm) {
+		
 		this.loanDetailId = loanDetailId;
-	}
-	public String getLoanType() {
-		return loanType;
-	}
-	public void setLoanType(String loanType) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.loanNumber = loanNumber;
+		this.amount = amount;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
 		this.loanType = loanType;
-	}
-	public long getLoanTerm() {
-		return loanTerm;
-	}
-	public void setLoanTerm(long loanTerm) {
 		this.loanTerm = loanTerm;
+				
 	}
 	
-	
-	
-
 }

@@ -11,10 +11,10 @@ import com.rabo.lms.entity.LoanDetail;
 
 public interface LoanRepo extends JpaRepository<LoanDetail, Integer>{
 	
-	@Query("SELECT c FROM LoanDetail c WHERE LOWER(c.firstName) = LOWER(:firstName) and LOWER(c.lastName) = LOWER(:lastName) and LOWER(c.loanNumber) = LOWER(:loanNumber)")
-	List<LoanDetail> find(@Param("firstName") String firstName,
-						@Param("lastName") String lastName,
-						@Param("loanNumber") String loanNumber);
+	//@Query("SELECT c FROM LoanDetail c WHERE LOWER(c.firstName) = LOWER(:firstName) and LOWER(c.lastName) = LOWER(:lastName) and LOWER(c.loanNumber) = LOWER(:loanNumber)")
+	List<LoanDetail> findByFirstNameAndLastNameAndLoanNumber(String firstName,
+						String lastName,
+						String loanNumber);
 	
 	
 	LoanDetail findByLoanNumber(String loanNumber);

@@ -39,22 +39,18 @@ export class AddLoanComponent implements OnInit {
     const dataService = new DataService();
 
     this.loanService.addLoan(this.loanDetails).subscribe(responseData => {
-      this.msg = responseData['Message'];
+
+      this.msg = 'Loan created Sucessfully';
     }, (errorMessage) =>{
-      console.log("Error code"+errorMessage.status);
-      console.log("Error Message"+errorMessage.error.code);
-      
-      if(errorMessage.status === 400){
+      this.msg = errorMessage.error.message;
+      if ( errorMessage.status === 400){
         this.msg = errorMessage.error.message;
-      }else if(errorMessage.status === 500){
+      }else if ( errorMessage.status === 500){
       this.msg = 'Application not currently avaliable. Please try again later';
       }
-      
 
-  }
-    );
 
-    //this.loanDetails = new CustomerDetails();
+  });
     form.resetForm();
   }
 

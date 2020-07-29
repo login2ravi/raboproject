@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.rabo.lms.controller.LoanManagementController;
 import com.rabo.lms.entity.LoanDetail;
 import com.rabo.lms.exception.BusinessException;
 import com.rabo.lms.exception.ErrorCode;
@@ -24,7 +23,7 @@ public class LoanManagementService {
 	private LoanRepo loanRepo;
 	
 	public List<LoanDetail> search(SearchRequest searchRequest) {
-		List<LoanDetail> loanDetailsList = loanRepo.find(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber()); 
+		List<LoanDetail> loanDetailsList = loanRepo.findByFirstNameAndLastNameAndLoanNumber(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber()); 
 		return loanDetailsList;
 	}
 	
@@ -34,20 +33,17 @@ public class LoanManagementService {
 		return loanDetails;
 	}
 	
-	public void addLoan(CustomerDetails loanRequest) {
+	public LoanDetail addLoan(CustomerDetails loanRequest) throws BusinessException{
 		
 		try {
 		
-			LoanDetail newLoanDetail = new LoanDetail();
-			newLoanDetail.setFirstName(loanRequest.getFirstName());
-			newLoanDetail.setLastName(loanRequest.getLastName());
-			newLoanDetail.setLoanNumber(loanRequest.getLoanNumber());
-			newLoanDetail.setAddress1(loanRequest.getAddress1());
-			newLoanDetail.setAddress2(loanRequest.getAddress2());
-			newLoanDetail.setCity(loanRequest.getCity());
+			LoanDetail newLoanDetail = new LoanDetail(null,loanRequest.getFirstName(), loanRequest.getLastName(), 
+					loanRequest.getLoanNumber(),loanRequest.getAmount(),loanRequest.getAddress1(),loanRequest.getAddress2(), loanRequest.getCity(),
+					loanRequest.getLoanType(),loanRequest.getLoanTerm());
 			
-			loanRepo.save(newLoanDetail);
+			newLoanDetail = loanRepo.save(newLoanDetail);
 			logger.info("Add loan saved sucessfully");
+			return newLoanDetail;
 		}catch(DataAccessException e) {
 			logger.error("Exception in AddLoan ",e);
 			throw new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists",e);

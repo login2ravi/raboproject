@@ -47,14 +47,18 @@ msg: string;
   onSubmit(form: NgForm): void{
     let isSucessful = false;
     this.loanService.updateLoan(this.loanDetails).subscribe(responseData => {
-      this.msg = responseData['Message'];
+      this.msg = 'Loan Updated Sucessfully';
+    }, (errorMessage) =>{
+      console.log("Error code"+errorMessage.status);
+      console.log("Error Message"+errorMessage.error.code);
+      
+      if(errorMessage.status === 400){
+        this.msg = errorMessage.error.message;
+      }else if(errorMessage.status === 500){
+      this.msg = 'Application not currently avaliable. Please try again later';
+      }
+      
 
-      console.log("Update response data==="+responseData['Message']);
-    });
-    //if (isSucessful){
-    //  this.msg = 'Sucessfully updated';
-    //}else{
-    //  this.msg = 'Not updated please try again later.';
-   // }
+  });
     }
 }

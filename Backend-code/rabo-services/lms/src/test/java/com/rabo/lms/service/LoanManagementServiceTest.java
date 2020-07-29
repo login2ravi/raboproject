@@ -1,12 +1,14 @@
 package com.rabo.lms.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,12 +17,14 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.rabo.lms.entity.LoanDetail;
+import com.rabo.lms.exception.BusinessException;
+import com.rabo.lms.exception.ErrorCode;
 import com.rabo.lms.model.CustomerDetails;
 import com.rabo.lms.model.SearchRequest;
 import com.rabo.lms.repo.LoanRepo;
 
 
-//@RunWith(MockitoJUnitRunner.class)
+
 
 @ExtendWith(MockitoExtension.class)
 public class LoanManagementServiceTest {
@@ -40,7 +44,7 @@ public class LoanManagementServiceTest {
 		searchRequest.setLoanNumber("HL-1001");
 		
 		List<LoanDetail> loanDetailList = getResultLoanList();
-		Mockito.when(loanRepo.find(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber())).thenReturn(loanDetailList);
+		Mockito.when(loanRepo.findByFirstNameAndLastNameAndLoanNumber(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber())).thenReturn(loanDetailList);
 		List<LoanDetail> resultLoanList = loanManagementService.search(searchRequest);
 		
 		assertEquals(resultLoanList, loanDetailList);
@@ -59,14 +63,35 @@ public class LoanManagementServiceTest {
 	public void addLoan() {
 		CustomerDetails customerDetails =  new CustomerDetails();
 		customerDetails.setLoanNumber("HL-1001");
+		LoanDetail loanDetail = new LoanDetail();
+		loanDetail.setLoanNumber("HL-1001");
+		loanDetail.setFirstName("fname");
+		Mockito.when(loanRepo.save(Mockito.any(LoanDetail.class))).thenReturn(loanDetail);
+		
+		LoanDetail actual = loanManagementService.addLoan(customerDetails);
+		Assertions.assertNotNull(actual);
 				
-		//Mockito.when(loanRepo.save(new LoanDetail())).thenThrow(new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists"));
-		/*
-		 * Assertions.assertThrows(BusinessException.class, () -> {
-		 * loanManagementService.addLoan(customerDetails); });
-		 */		
 	
 	}
+	
+	@Test
+	public void addLoanException() {
+		CustomerDetails customerDetails =  new CustomerDetails();
+		customerDetails.setLoanNumber("HL-1001");
+		LoanDetail loanDetail = new LoanDetail();
+		loanDetail.setLoanNumber("HL-1001");
+		loanDetail.setFirstName("fname");
+		Mockito.when(loanRepo.save(Mockito.any(LoanDetail.class))).thenThrow(new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists"));
+		
+		
+		BusinessException exception = assertThrows(BusinessException.class, () -> {
+		loanManagementService.addLoan(customerDetails); });
+		
+		assertEquals(exception.getMessage(), "Loan number already exists");
+		 
+		
+	}
+	
 	
 	@Test
 	public void updateLoan() {
@@ -99,10 +124,6 @@ public class LoanManagementServiceTest {
 				
 		
 	}
-	
-	
-	
-	
 	
 	
 }
