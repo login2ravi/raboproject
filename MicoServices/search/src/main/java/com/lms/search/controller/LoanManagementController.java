@@ -1,4 +1,4 @@
-package com.rabo.lms.controller;
+package com.lms.search.controller;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rabo.lms.entity.LoanDetail;
-import com.rabo.lms.model.CustomerDetails;
-import com.rabo.lms.model.SearchRequest;
-import com.rabo.lms.service.LoanManagementService;
+import com.lms.search.entity.LoanDetail;
+import com.lms.search.model.CustomerDetails;
+import com.lms.search.model.SearchRequest;
+import com.lms.search.service.LoanManagementService;
 
 @RestController
 @RequestMapping("/secure")

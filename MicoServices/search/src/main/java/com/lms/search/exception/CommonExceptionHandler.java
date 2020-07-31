@@ -1,18 +1,16 @@
-package com.rabo.lms.exception;
+package com.lms.search.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.rabo.lms.model.ErrorResponse;
-import com.rabo.lms.service.LoanManagementService;
+import com.lms.search.model.ErrorResponse;
 
-import io.jsonwebtoken.ExpiredJwtException;
+
 
 @ControllerAdvice
 public class CommonExceptionHandler {
@@ -30,10 +28,6 @@ public class CommonExceptionHandler {
 	        return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
 	    }
 
-	    @ExceptionHandler(ExpiredJwtException.class)
-	    public ResponseEntity <ErrorResponse> processExpiredJwtException(ExpiredJwtException ex) {
-	    	return  generateErrorResponse(ErrorCode.INVALID_TOKEN, "Authorization header is invalid", ex);
-	    }
 
 	    @ExceptionHandler(Exception.class)
 	    public  ResponseEntity<ErrorResponse> processBusinessException(Exception ex) {

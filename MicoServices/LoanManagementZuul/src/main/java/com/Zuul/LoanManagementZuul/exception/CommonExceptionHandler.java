@@ -1,16 +1,14 @@
-package com.rabo.lms.exception;
+package com.Zuul.LoanManagementZuul.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.rabo.lms.model.ErrorResponse;
-import com.rabo.lms.service.LoanManagementService;
+import com.Zuul.LoanManagementZuul.model.ErrorResponse;
 
 import io.jsonwebtoken.ExpiredJwtException;
 

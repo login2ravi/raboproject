@@ -1,4 +1,4 @@
-package com.rabo.lms.exception;
+package com.lms.search.exception;
 
 public class BusinessException extends RuntimeException {
 

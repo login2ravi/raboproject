@@ -1,4 +1,4 @@
-package com.rabo.lms.service;
+package com.lms.search.service;
 
 import java.util.List;
 
@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.rabo.lms.entity.LoanDetail;
-import com.rabo.lms.entity.LoanDetail.LoanDetailBuilder;
-import com.rabo.lms.exception.BusinessException;
-import com.rabo.lms.exception.ErrorCode;
-import com.rabo.lms.model.CustomerDetails;
-import com.rabo.lms.model.LoginRequest;
-import com.rabo.lms.model.SearchRequest;
-import com.rabo.lms.repo.LoanRepo;
+import com.lms.search.entity.LoanDetail;
+import com.lms.search.exception.BusinessException;
+import com.lms.search.exception.ErrorCode;
+import com.lms.search.model.CustomerDetails;
+import com.lms.search.model.SearchRequest;
+import com.lms.search.repo.LoanRepo;
 
 @Service
 public class LoanManagementService {

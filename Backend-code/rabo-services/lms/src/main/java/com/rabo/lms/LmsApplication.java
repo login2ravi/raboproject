@@ -48,18 +48,5 @@ public class LmsApplication {
 		return  new ObjectMapper();
 	}
 	
-//	@Bean
-//	public WebMvcConfigurer corsConfig() {
-//	
-//		return new WebMvcConfigurerAdapter() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry corsRegistry) {
-//				corsRegistry.addMapping("/**").allowedOrigins("http://localhost:4200");
-//				
-//			}
-//		};
-//	}
-	
-	
 
 }

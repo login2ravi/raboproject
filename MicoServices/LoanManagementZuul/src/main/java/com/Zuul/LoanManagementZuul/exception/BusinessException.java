@@ -1,4 +1,4 @@
-package com.rabo.lms.exception;
+package com.Zuul.LoanManagementZuul.exception;
 
 public class BusinessException extends RuntimeException {
 
