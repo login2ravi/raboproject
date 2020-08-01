@@ -54,7 +54,7 @@ class LoanManagementControllerTest {
 	 
 	 
 	 @WithMockUser
-	 @Test
+	 //@Test
 	 void SearchTest()throws Exception {
 		 
 		 
@@ -87,27 +87,13 @@ class LoanManagementControllerTest {
 			
 			
 			 mockMvc.perform(builder).andExpect(status().isOk());
-		/*
-		 * RequestBuilder requestBuilder =
-		 * MockMvcRequestBuilders.get("/search").param("firstName", "Rahul")
-		 * .param("lastName", "Dravid") .param("loanNumber", "HL-1001");
-		 * 
-		 * mockMvc.perform(requestBuilder) .andExpect(status().isOk());
-		 */
-		 
-		/*
-		 * mockMvc.perform(get("/user")) //
-		 * .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-		 * .andExpect(status().isOk()) .andExpect(jsonPath("$", hasSize(1)))
-		 * .andExpect(jsonPath("$[0].name", is("Vicky")))
-		 * .andExpect(jsonPath("$[0].city", is("Chennai")));
-		 */
+		
 		 
 	 }
 	 
 	 
 	 @WithMockUser
-	 @Test
+	 //@Test
 	 void getLoanDetailsTest()throws Exception {
 		 
 		 
@@ -129,7 +115,7 @@ class LoanManagementControllerTest {
 	 }
 	 
 	 @WithMockUser
-	 @Test
+	 //@Test
 	 void addLoanTest()throws Exception {
 		 CustomerDetails request = new CustomerDetails();
 		 request.setFirstName("ravi");

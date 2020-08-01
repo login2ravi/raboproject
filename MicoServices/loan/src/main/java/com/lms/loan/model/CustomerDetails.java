@@ -1,4 +1,4 @@
-package com.lms.search.model;
+package com.lms.loan.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

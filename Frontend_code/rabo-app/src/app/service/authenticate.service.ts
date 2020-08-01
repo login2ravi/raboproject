@@ -25,7 +25,7 @@ export class AuthenticateService {
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token' };
 
-    return this.httpClient.post<string>('http://localhost:7000/login',
+    return this.httpClient.post<string>('http://localhost:7003/login',
     {"userName":username,"password":password},{headers});
   }
 
@@ -35,18 +35,19 @@ export class AuthenticateService {
       'Access-Control-Allow-Origin': 'http://localhost:4200/*'
      };
 
-    console.log("search token="+sessionStorage.getItem('token'));
+    
     let token = sessionStorage.getItem('token');
     const httpOptions = {
-      headers: { 'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:4200/*',
-       'Authorization':token},
+        headers: { 'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:4200/*',
+         'Authorization' : token},
       params: {'firstName': firstName,'lastName' : lastName,'loanNumber': loanNumber}
     };
 
 
 
-return this.httpClient.get<CustomerDetails[]>('http://localhost:7000/secure/search',httpOptions);
+return this.httpClient.get<CustomerDetails[]>('http://localhost:7003/lmsSearchService/secure/search',httpOptions);
+//return this.httpClient.get<CustomerDetails[]>('http://localhost:7000/secure/search',httpOptions);
 }
 
 }

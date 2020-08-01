@@ -6,6 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +30,11 @@ public class loginDetailsController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	Map<String,String> validateUser(@RequestBody LoginRequest loginRequest) {
-        logger.info("Inside the validate user");
+		HttpHeaders headers = new HttpHeaders();
+		
+        logger.info("ZUULInside the validate user");
         String token= loginService.loginUser(loginRequest);
-        logger.debug("Token ==",token);
+        logger.info("ZZUL Token =="+token);
         
         Map<String,String> resultMap = new HashMap<String,String>();
         if(token != null) {
@@ -39,6 +42,8 @@ public class loginDetailsController {
         	resultMap.put("username", loginRequest.getUserName());
     		resultMap.put("userrole", user.getUserRole());
     		resultMap.put("token", token);
+    		headers.add("Access-Control-Expose-Headers", "Access-Control-Allow-Origin,Authorization");
+    		headers.add("Authorization", "bearer " + token);
         }
 		
         return resultMap;

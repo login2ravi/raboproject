@@ -1,4 +1,4 @@
-package com.lms.search;
+package com.lms.loan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @SpringBootApplication
 @EnableEurekaClient
 @CrossOrigin
-public class SearchApplication {
+public class LoanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SearchApplication.class, args);
+		SpringApplication.run(LoanApplication.class, args);
 	}
 
 }
