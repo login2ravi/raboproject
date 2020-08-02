@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import {LoanService} from '../service/loan.service'
-import {CustomerDetails} from '../model/CustomerDetails.model'
-import { DataService } from '../service/data.service';
+import {LoanService} from '../service/loan.service';
+import {CustomerDetails} from '../model/CustomerDetails.model';
+
 import { UsersService } from '../service/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
@@ -27,8 +27,8 @@ export class AddLoanComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.isLoggedIn = params['isLoggedIn'];
-      this.isAdminUser = params['isAdmin'];
+      this.isLoggedIn = params.isLoggedIn;
+      this.isAdminUser = params.isAdmin;
     });
 
     this.userservice.setCurrentScreen('addloan');
@@ -36,12 +36,11 @@ export class AddLoanComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void{
-    const dataService = new DataService();
 
     this.loanService.addLoan(this.loanDetails).subscribe(responseData => {
 
       this.msg = 'Loan created Sucessfully';
-    }, (errorMessage) =>{
+    }, (errorMessage) => {
       this.msg = errorMessage.error.message;
       if ( errorMessage.status === 400){
         this.msg = errorMessage.error.message;

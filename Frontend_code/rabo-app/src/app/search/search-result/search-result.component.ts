@@ -12,8 +12,8 @@ export class SearchResultComponent implements OnInit {
   isLoggedIn: boolean;
   isAdminUser: boolean;
   resultList: Array<CustomerDetails>;
-  
-  constructor(private router: Router, private route: ActivatedRoute, 
+
+  constructor(private router: Router, private route: ActivatedRoute,
               private searchService: SearchService) { }
 
   ngOnInit(): void {
@@ -24,16 +24,12 @@ export class SearchResultComponent implements OnInit {
        this.resultList = searchResultArray;
      });
 
-    //this.route
-    //.data
-    //.subscribe(v => this.sub = v.isLoggedIn);
 
     this.route.queryParams.subscribe(params => {
-      this.isLoggedIn = params['isLoggedIn'];
-      this.isAdminUser = (params['isAdmin']==='admin')?true:false;
+      this.isLoggedIn = params.isLoggedIn;
+      this.isAdminUser = (params.isAdmin === 'admin') ? true : false;
     });
 
-    console.log("Search result userrole ==="+this.isAdminUser);
 
   }
 

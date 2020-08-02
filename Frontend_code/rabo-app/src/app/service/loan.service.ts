@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { CustomerDetails } from '../model/CustomerDetails.model';
 import { SearchService } from './search.service';
 import { LoanDetails } from '../model/LoanDetails.model';
-import { DataService } from './data.service';
 import { removeSummaryDuplicates } from '@angular/compiler';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
@@ -18,9 +17,7 @@ export class LoanService{
   constructor(private httpClient: HttpClient) {}
 
   saveLoanDetails(customerDetails: CustomerDetails): void{
-   const dataService = new DataService();
-   dataService.loan.push(customerDetails);
-  }
+   }
 
 
   updateLoan(customerDetails: CustomerDetails)  {
@@ -59,7 +56,7 @@ export class LoanService{
   addLoan(customerDetails: CustomerDetails)  {
 
     const token = sessionStorage.getItem('token');
-    
+
     const headers = {
                       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',

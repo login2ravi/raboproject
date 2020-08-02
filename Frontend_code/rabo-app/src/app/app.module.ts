@@ -8,7 +8,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { UsersService } from './service/users.service';
-import {GlobalDataService} from './service/global-data.service';
+
 import { LogoutComponent } from './logout/logout.component';
 import { AddLoanComponent } from './add-loan/add-loan.component';
 import { UpdateLoanComponent } from './update-loan/update-loan.component';
@@ -39,7 +39,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
 
-  providers:[UsersService, GlobalDataService],
+  providers:[UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

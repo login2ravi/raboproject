@@ -5,7 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@EnableWebSecurity //(debug = true) // when you want to see what filters are applied
+@EnableWebSecurity 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
@@ -29,24 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.css",
                 "/**/*.js"
         ).permitAll()
-        
-        
-        //.antMatchers(HttpMethod.GET, "v2/api-docs").permitAll()
-				/*
-				 * .antMatchers(HttpMethod.GET, "/v2/**").permitAll()
-				 * .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
-				 */
-        
-        
-				/*
-				 * .antMatchers(HttpMethod.OPTIONS, "/login").permitAll()
-				 * .antMatchers(HttpMethod.OPTIONS, "/search").permitAll()
-				 * .antMatchers(HttpMethod.OPTIONS, "/updateloan").permitAll()
-				 * .antMatchers(HttpMethod.OPTIONS, "/addloan").permitAll()
-				 * .antMatchers(HttpMethod.OPTIONS, "/getloandetails/**").permitAll()
-				 */
+       
         .antMatchers("/secure/**").permitAll()
-        //.antMatchers("/lmsSearchService/**").permitAll()
         .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and().httpBasic();

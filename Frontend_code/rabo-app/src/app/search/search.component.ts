@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter, NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
-import {SearchService} from '../service/search.service'
-import {SearchResult} from '../model/Search.model'
+import {SearchService} from '../service/search.service';
+import {SearchResult} from '../model/Search.model';
 import { UsersService } from '../service/users.service';
 import { User } from '../model/User.model';
-import {DataService} from '../service/data.service';
+
 import { CustomerDetails } from '../model/CustomerDetails.model';
 import { AuthenticateService } from '../service/authenticate.service';
 
@@ -39,8 +39,8 @@ export class SearchComponent implements OnInit {
     }
 
     this.route.queryParams.subscribe(params => {
-      this.isLoggedIn = params['isLoggedIn'];
-      this.isAdminUser = params['isAdmin'];
+      this.isLoggedIn = params.isLoggedIn;
+      this.isAdminUser = params.isAdmin;
     });
 
     this.userservice.setCurrentScreen('search');
