@@ -1,10 +1,18 @@
-package com.rabo.lms.controller;
+package com.lms.search.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabo.lms.entity.LoanDetail;
-import com.rabo.lms.model.CustomerDetails;
-import com.rabo.lms.model.SearchRequest;
-import com.rabo.lms.service.LoanManagementService;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -20,16 +28,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lms.search.entity.LoanDetail;
+import com.lms.search.model.SearchRequest;
+import com.lms.search.service.LoanManagementService;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.mockito.Mockito.*;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -47,7 +50,7 @@ class LoanManagementControllerTest {
     @BeforeEach
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context)
-                .apply(springSecurity())
+               // .apply(springSecurity())
                 .build();
     }
 
@@ -69,52 +72,6 @@ class LoanManagementControllerTest {
                 .andExpect(jsonPath("$[0].lastName", is("shankar")));
     }
 
-
-    @WithMockUser
-    @Test
-    void getLoanDetailsTest() throws Exception {
-
-        LoanDetail loanDetail = prepareLoanDetails().get(0);
-        when(loanManagementService.getLoanDetails(loanDetail.getLoanNumber()))
-                .thenReturn(loanDetail);
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
-                .get("/secure/getloandetails/" + loanDetail.getLoanNumber());
-
-        mockMvc.perform(builder)
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.loanNumber", is(loanDetail.getLoanNumber())));
-    }
-
-    @WithMockUser
-    @Test
-    void addLoanTest() throws Exception {
-        CustomerDetails request = getCustomerDetails();
-
-        when(loanManagementService.addLoan(request))
-                .thenReturn(new LoanDetail());
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/secure/addloan")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(asJsonString(request));
-
-        mockMvc.perform(builder)
-                .andExpect(status().isOk());
-    }
-
-    @WithMockUser
-    @Test
-    void updateLoan() throws Exception {
-        CustomerDetails request = getCustomerDetails();
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.put("/secure/updateloan")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(asJsonString(request));
-
-        mockMvc.perform(builder)
-                .andExpect(status().isOk());
-        verify(loanManagementService, times(1)).updateLoan(Mockito.any());
-    }
 
     private SearchRequest prepareSearchRequest() {
         SearchRequest searchRequest = new SearchRequest();
@@ -140,16 +97,6 @@ class LoanManagementControllerTest {
         return loanDetails;
     }
 
-    private CustomerDetails getCustomerDetails() {
-        CustomerDetails request = new CustomerDetails();
-        request.setFirstName("ravi");
-        request.setLastName("shankar");
-        request.setLoanNumber("HL-3000");
-        request.setAddress1("Pristine");
-        request.setAddress2("PBKM");
-        request.setCity("tnj");
-        return request;
-    }
 
     private static String asJsonString(Object obj) {
         try {

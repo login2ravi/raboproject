@@ -1,10 +1,15 @@
-package com.rabo.lms.controller;
+package com.lms.loan.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabo.lms.entity.LoanDetail;
-import com.rabo.lms.model.CustomerDetails;
-import com.rabo.lms.model.SearchRequest;
-import com.rabo.lms.service.LoanManagementService;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -20,16 +25,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.mockito.Mockito.*;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lms.loan.entity.LoanDetail;
+import com.lms.loan.model.CustomerDetails;
+import com.lms.loan.service.LoanManagementService;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -47,28 +46,11 @@ class LoanManagementControllerTest {
     @BeforeEach
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context)
-                .apply(springSecurity())
+                //.apply(springSecurity())
                 .build();
     }
 
-    @WithMockUser
-    @Test
-    void SearchTest() throws Exception {
-
-        SearchRequest searchRequest = prepareSearchRequest();
-        List<LoanDetail> loanDetails = prepareLoanDetails();
-        when(loanManagementService.search(searchRequest)).thenReturn(loanDetails);
-
-        mockMvc.perform(get("/secure/search")
-                .param("firstName", searchRequest.getFirstName())
-                .param("lastName", searchRequest.getLastName())
-                .param("loanNumber", searchRequest.getLoanNumber()))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].firstName", is("ravi")))
-                .andExpect(jsonPath("$[0].lastName", is("shankar")));
-    }
-
+    
 
     @WithMockUser
     @Test
@@ -116,13 +98,7 @@ class LoanManagementControllerTest {
         verify(loanManagementService, times(1)).updateLoan(Mockito.any());
     }
 
-    private SearchRequest prepareSearchRequest() {
-        SearchRequest searchRequest = new SearchRequest();
-        searchRequest.setFirstName("ravi");
-        searchRequest.setLastName("shankar");
-        searchRequest.setLoanNumber("1001");
-        return searchRequest;
-    }
+    
 
 
     private List<LoanDetail> prepareLoanDetails() {
