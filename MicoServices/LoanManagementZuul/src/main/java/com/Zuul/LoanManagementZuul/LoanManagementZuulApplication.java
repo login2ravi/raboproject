@@ -34,16 +34,15 @@ public class LoanManagementZuulApplication {
 		SpringApplication.run(LoanManagementZuulApplication.class, args);
 	}
 	
-	@Bean
-	FilterRegistrationBean filterRegistrationBean() {
-		
-		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-		registrationBean.setFilter(securityFilter );
-		registrationBean.addUrlPatterns("/secure/*");
-
-		return registrationBean;
-	}
 	
+	  @Bean FilterRegistrationBean filterRegistrationBean() {
+	  
+	  final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+	  registrationBean.setFilter(securityFilter );
+	  registrationBean.addUrlPatterns("/secure/*");
+	  
+	  return registrationBean; }
+	 	
 	@Bean
 	ObjectMapper objectMapper(){
 		return  new ObjectMapper();

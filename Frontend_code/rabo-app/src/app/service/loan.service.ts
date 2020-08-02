@@ -33,7 +33,7 @@ export class LoanService{
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token',
                        'Authorization' : token};
 
-    return this.httpClient.put('http://localhost:7000/secure/updateloan',
+    return this.httpClient.put('http://localhost:7003/lmsLoanService/secure/updateloan',
      customerDetails,
     {headers});
   }
@@ -51,7 +51,7 @@ export class LoanService{
 
 
 
-    return this.httpClient.get<CustomerDetails>('http://localhost:7000/secure/getloandetails/' + loanNumber, httpOptions);
+    return this.httpClient.get<CustomerDetails>('http://localhost:7003/lmsLoanService/secure/getloandetails/' + loanNumber, httpOptions);
 
   }
 
@@ -66,7 +66,7 @@ export class LoanService{
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token',
                        'Authorization':token};
 
-    return this.httpClient.post<any>('http://localhost:7000/secure/addloan',
+    return this.httpClient.post<any>('http://localhost:7003/lmsLoanService/secure/addloan',
     customerDetails,
     {headers});
   }

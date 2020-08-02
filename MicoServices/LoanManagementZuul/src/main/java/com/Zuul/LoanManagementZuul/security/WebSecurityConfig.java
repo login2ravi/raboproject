@@ -46,7 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				 * .antMatchers(HttpMethod.OPTIONS, "/getloandetails/**").permitAll()
 				 */
         .antMatchers("/secure/**").permitAll()
-        .antMatchers("/").permitAll()
+        //.antMatchers("/lmsSearchService/**").permitAll()
+        .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and().httpBasic();
   }
