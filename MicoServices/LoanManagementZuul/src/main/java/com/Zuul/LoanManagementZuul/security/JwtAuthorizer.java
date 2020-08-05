@@ -17,19 +17,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtAuthorizer implements Authorizer{
 
 	
-	//@Value ()
-	//Integer expiryInSeconds;
 
-    //@Value('${jwt.token.secret}')
-    //String jwtSecret;
 	
 	@Override
 	public Claims  validateToken(String jwtToken) {
-		// TODO Auto-generated method stub
 		try {
-            String token = jwtToken.replaceAll("Bearer ", "");
-            Claims claims = Jwts.parser().setSigningKey("rabo").parseClaimsJws(token).getBody();
-            return claims;
+            String token = jwtToken.replace("Bearer ", "");
+            return Jwts.parser().setSigningKey("rabo").parseClaimsJws(token).getBody();
+            
         } catch (Exception ex) {
         	 throw new BusinessException (ErrorCode.INVALID_HEADER, "Invalid Authorization header", ex);
         }
@@ -37,14 +32,13 @@ public class JwtAuthorizer implements Authorizer{
 
 	@Override
 	public String generateToken(String userName) {
-		// TODO Auto-generated method stub
-		 String jwtToken = Jwts.builder().setSubject(userName)
+		 return Jwts.builder().setSubject(userName)
 	                .claim("roles", "user")
 	                .setIssuedAt(new Date())
 	                .signWith(SignatureAlgorithm.HS256, "rabo")
 	                .setExpiration(new Date(System.currentTimeMillis() + 1200 * 1000))
 	                .compact();
-	        return jwtToken;
+	        
 	}
 
 	

@@ -26,6 +26,8 @@ import io.jsonwebtoken.Claims;
 public class SecurityFilter extends OncePerRequestFilter {
 	
 	Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
+	static final String AUTH_HEADER_NOT_FOUND_MSG =  "Authorization header is invalid/not found";
+	static final String AUTH_HEADER_INVALID_MSG =  "Authorization header is invalid";
 	
 	
     @Autowired
@@ -47,7 +49,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                     Claims claims = authorizer.validateToken(jwtToken);
 
                     if (isTokenExpired(claims)) {
-                        throw new BusinessException(ErrorCode.INVALID_TOKEN, "Authorization header is invalid");
+                        throw new BusinessException(ErrorCode.INVALID_TOKEN, AUTH_HEADER_INVALID_MSG);
                     	
                     }
 
@@ -55,13 +57,13 @@ public class SecurityFilter extends OncePerRequestFilter {
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
                 } else {
                 	
-                    throw new BusinessException(ErrorCode.INVALID_HEADER, "Authorization header is invalid/not found");
+                    throw new BusinessException(ErrorCode.INVALID_HEADER, AUTH_HEADER_NOT_FOUND_MSG);
                 	
                 }
             } catch (Exception e) {
             	
-                logger.error("Authorization header is invalid/not found", e);
-                	ErrorResponse errorResponse = new ErrorResponse(ErrorCode.INVALID_HEADER.toString(), "Authorization header is invalid/not found");
+                logger.error(AUTH_HEADER_NOT_FOUND_MSG, e);
+                	ErrorResponse errorResponse = new ErrorResponse(ErrorCode.INVALID_HEADER.toString(), AUTH_HEADER_NOT_FOUND_MSG);
 
                 httpServletResponse.setContentType("application/json");
                 httpServletResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
@@ -72,7 +74,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                 
     }
 
-    private Boolean isTokenExpired(Claims claims) {
+    private boolean isTokenExpired(Claims claims) {
         Date expirationDate = claims.getExpiration();
         Date currentDate = new Date();
         return expirationDate.before(currentDate);

@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.dao.DataAccessException;
 
 import com.lms.loan.entity.LoanDetail;
 import com.lms.loan.exception.BusinessException;
@@ -54,6 +55,7 @@ class LoanManagementServiceTest {
 		loanDetail.setLoanNumber("HL-1001");
 		loanDetail.setFirstName("fname");
 		Mockito.when(loanRepo.save(Mockito.any(LoanDetail.class))).thenReturn(loanDetail);
+		Mockito.when(loanRepo.findByLoanNumber(customerDetails.getLoanNumber())).thenReturn(null);
 		
 		LoanDetail actual = loanManagementService.addLoan(customerDetails);
 		Assertions.assertNotNull(actual);
@@ -68,7 +70,8 @@ class LoanManagementServiceTest {
 		LoanDetail loanDetail = new LoanDetail();
 		loanDetail.setLoanNumber("HL-1001");
 		loanDetail.setFirstName("fname");
-		Mockito.when(loanRepo.save(Mockito.any(LoanDetail.class))).thenThrow(new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists"));
+		//Mockito.when(loanRepo.save(loanDetail)).thenThrow(new RuntimeException(""));
+		Mockito.when(loanRepo.findByLoanNumber(customerDetails.getLoanNumber())).thenReturn(loanDetail);
 		
 		
 		BusinessException exception = assertThrows(BusinessException.class, () -> {

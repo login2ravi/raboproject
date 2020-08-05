@@ -38,17 +38,17 @@ public class LoanManagementController {
 	@PostMapping("/addloan")
 	public ResponseEntity<?> addLoan(@RequestBody CustomerDetails customerDetails) {
         	
-		loanManagementService.addLoan(customerDetails);
+		LoanDetail loanDetail = loanManagementService.addLoan(customerDetails);
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(loanDetail, HttpStatus.OK);
         
     }
 	
 	@PutMapping("/updateloan")
-	public ResponseEntity<?> updateLoan(@RequestBody CustomerDetails customerDetails) {
-		loanManagementService.updateLoan(customerDetails);  
+	public ResponseEntity<LoanDetail> updateLoan(@RequestBody CustomerDetails customerDetails) {
+		LoanDetail loanDetail = loanManagementService.updateLoan(customerDetails);  
 		 
-		return new ResponseEntity<>(HttpStatus.OK);
+		 return new ResponseEntity<>(loanDetail, HttpStatus.OK);
 	}
 	
 }

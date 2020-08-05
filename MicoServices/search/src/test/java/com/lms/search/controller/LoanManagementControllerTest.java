@@ -54,7 +54,7 @@ class LoanManagementControllerTest {
                 .build();
     }
 
-    @WithMockUser
+    //@WithMockUser
     @Test
     void SearchTest() throws Exception {
 

@@ -8,9 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Zuul.LoanManagementZuul.entity.User;
@@ -19,22 +18,22 @@ import com.Zuul.LoanManagementZuul.service.LoginService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class loginDetailsController {
+public class LoginDetailsController {
 	
 	
-	 Logger logger = LoggerFactory.getLogger(loginDetailsController.class);
+	 Logger logger = LoggerFactory.getLogger(LoginDetailsController.class);
 			 
 			 
 	@Autowired
 	LoginService loginService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	Map<String,String> validateUser(@RequestBody LoginRequest loginRequest) {
+	@PostMapping(value = "/login")
+	public Map<String,String> validateUser(@RequestBody LoginRequest loginRequest) {
 		HttpHeaders headers = new HttpHeaders();
 		
         logger.info("ZUULInside the validate user");
         String token= loginService.loginUser(loginRequest);
-        logger.info("ZZUL Token =="+token);
+        
         
         Map<String,String> resultMap = new HashMap<String,String>();
         if(token != null) {

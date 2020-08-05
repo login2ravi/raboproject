@@ -28,7 +28,7 @@ import com.lms.search.repo.LoanRepo;
 
 
 @ExtendWith(MockitoExtension.class)
-public class LoanManagementServiceTest {
+class LoanManagementServiceTest {
 
 	@InjectMocks
 	LoanManagementService loanManagementService;
@@ -37,7 +37,7 @@ public class LoanManagementServiceTest {
 	private LoanRepo loanRepo;
 	
 	@Test
-	public void searchTest() {
+	void searchTest() {
 		
 		SearchRequest searchRequest = new SearchRequest();
 		searchRequest.setFirstName("Rahul");

@@ -3,7 +3,6 @@ package com.lms.loan.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.lms.loan.entity.LoanDetail;
@@ -26,9 +25,9 @@ public class LoanManagementService {
 			
 	}
 	
-	public LoanDetail addLoan(CustomerDetails loanRequest) throws BusinessException{
+	public LoanDetail addLoan(CustomerDetails loanRequest) {
 		
-		try {
+		
 			
 			  LoanDetail newLoanDetail =
 			  LoanDetail.builder().firstName(loanRequest.getFirstName())
@@ -37,19 +36,20 @@ public class LoanManagementService {
 			  .city(loanRequest.getCity())
 			  .build();
 			 
-			
+		
+		  if(loanRepo.findByLoanNumber(loanRequest.getLoanNumber()) != null) { throw
+		  new BusinessException(ErrorCode.INVALID_REQUEST,
+		  "Loan number already exists"); }
+		 
 			newLoanDetail = loanRepo.save(newLoanDetail);
 			logger.info("Add loan saved sucessfully");
 			return newLoanDetail;
-		}catch(DataAccessException e) {
-			logger.error("Exception in AddLoan ",e);
-			throw new BusinessException(ErrorCode.INVALID_REQUEST, "Loan number already exists",e);
-		}
+		
 		
 	}
 	
 	
-public void updateLoan(CustomerDetails updateRequest) {
+public LoanDetail updateLoan(CustomerDetails updateRequest) {
 		
 		LoanDetail loanDetail = loanRepo.findByLoanNumber(updateRequest.getLoanNumber());
 	
@@ -57,7 +57,7 @@ public void updateLoan(CustomerDetails updateRequest) {
 		loanDetail.setLoanType(updateRequest.getLoanType());
 		
 		loanDetail.setAmount(updateRequest.getAmount()); 
-		loanRepo.save(loanDetail);
+		return loanRepo.save(loanDetail);
 	}
 	
 	

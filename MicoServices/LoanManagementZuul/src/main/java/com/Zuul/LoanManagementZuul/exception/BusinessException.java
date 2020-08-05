@@ -6,8 +6,8 @@ public class BusinessException extends RuntimeException {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	ErrorCode errorCode;
-    String message;
+	final ErrorCode errorCode;
+    final String message;
     Exception originalException;
 
     public BusinessException(ErrorCode errorCode, String message) {

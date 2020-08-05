@@ -19,8 +19,8 @@ public class LoanManagementService {
 	private LoanRepo loanRepo;
 	
 	public List<LoanDetail> search(SearchRequest searchRequest) {
-		List<LoanDetail> loanDetailsList = loanRepo.findByFirstNameAndLastNameAndLoanNumber(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber()); 
-		return loanDetailsList;
+		return loanRepo.findByFirstNameAndLastNameAndLoanNumber(searchRequest.getFirstName(), searchRequest.getLastName(), searchRequest.getLoanNumber()); 
+		
 	}
 	
 
