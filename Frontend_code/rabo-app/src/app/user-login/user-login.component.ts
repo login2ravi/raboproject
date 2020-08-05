@@ -14,27 +14,28 @@ import { AuthenticateService } from '../service/authenticate.service';
 })
 export class UserLoginComponent implements OnInit {
 public userData$: Subscription;
-public invalidUserMessage: String;
+public invalidUserMessage: string;
 user: User = new User();
 @ViewChild(NgForm) ngForm: NgForm;
 
-constructor(private userservice: UsersService, private router: Router,private authenticateService: AuthenticateService) {
-  sessionStorage.setItem('username',null);
-      sessionStorage.setItem('token',null);
+constructor(private userservice: UsersService, private router: Router, private authenticateService: AuthenticateService) {
+  sessionStorage.setItem('username', null);
+  sessionStorage.setItem('token', null);
 }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void{
-    //var returnvalue = this.authenticateService.authenticate(this.user.userName,this.user.password);
+
     this.authenticateService.authenticate(this.user.userName,this.user.password).subscribe(responseData => {
       const tokenStr = 'Bearer ' + responseData['token'];
 
-      if(responseData['token'] != null){
+      if( responseData['token'] != null){
         sessionStorage.setItem('username', responseData['username']);
         sessionStorage.setItem('token', tokenStr);
 
+        console.log("Userrole froms response =="+responseData['userrole']);
         sessionStorage.setItem('userrole', responseData['userrole']);
         const userDtl = new User();
         userDtl.userName = sessionStorage.getItem('username');

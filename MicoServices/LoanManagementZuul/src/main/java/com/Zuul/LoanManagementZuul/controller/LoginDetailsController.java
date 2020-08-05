@@ -39,6 +39,7 @@ public class LoginDetailsController {
         if(token != null) {
         	User user = loginService.getUserDetails(loginRequest);
         	resultMap.put("username", loginRequest.getUserName());
+        	logger.info("User role ==="+user.getUserRole());
     		resultMap.put("userrole", user.getUserRole());
     		resultMap.put("token", token);
     		headers.add("Access-Control-Expose-Headers", "Access-Control-Allow-Origin,Authorization");

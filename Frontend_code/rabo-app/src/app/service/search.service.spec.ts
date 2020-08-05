@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SearchService } from './search.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SearchService', () => {
   let service: SearchService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule ],
+      declarations: [  ],
+      providers: []
+    });
+
     service = TestBed.inject(SearchService);
   });
 

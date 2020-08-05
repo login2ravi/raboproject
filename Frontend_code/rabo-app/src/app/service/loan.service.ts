@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CustomerDetails } from '../model/CustomerDetails.model';
 import { SearchService } from './search.service';
-import { LoanDetails } from '../model/LoanDetails.model';
-import { removeSummaryDuplicates } from '@angular/compiler';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +15,7 @@ export class LoanService{
   searchService: SearchService;
   constructor(private httpClient: HttpClient) {}
 
-  saveLoanDetails(customerDetails: CustomerDetails): void{
-   }
-
-
-  updateLoan(customerDetails: CustomerDetails)  {
+  updateLoan(customerDetails: CustomerDetails){
 
     const token = sessionStorage.getItem('token');
 
@@ -36,13 +31,13 @@ export class LoanService{
   }
 
 
-  getLoanDetails(loanNumber){
+  getLoanDetails(loanNumber): Observable<CustomerDetails>{
 
     const token = sessionStorage.getItem('token');
     const httpOptions = {
       headers: { 'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
-       'Authorization' : token}
+       'Authorization': token}
 
     };
 
@@ -63,7 +58,7 @@ export class LoanService{
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token',
                        'Authorization':token};
 
-    return this.httpClient.post<any>('http://localhost:7003/lmsLoanService/secure/addloan',
+    return this.httpClient.post<CustomerDetails>('http://localhost:7003/lmsLoanService/secure/addloan',
     customerDetails,
     {headers});
   }

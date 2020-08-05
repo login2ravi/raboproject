@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { CustomerDetails } from '../model/CustomerDetails.model';
-import { VirtualTimeScheduler } from 'rxjs';
+import { VirtualTimeScheduler, Observable } from 'rxjs';
+import { User } from '../model/User.model';
 
 class LoginUser{
   username: string;
@@ -19,24 +19,24 @@ export class AuthenticateService {
   constructor( private httpClient: HttpClient) { }
 
 
-  authenticate(username, password)  {
+  authenticate(username, password) : Observable<User> {
     const headers = { 
                       'Access-Control-Allow-Origin': 'http://localhost:4200/*',
                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS,TOKEN',
                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token' };
 
-    return this.httpClient.post<string>('http://localhost:7003/login',
-    {"userName":username,"password":password},{headers});
+    return this.httpClient.post<User>('http://localhost:7003/login',
+    {"userName": username, "password": password}, {headers});
   }
 
-  cust :Array<CustomerDetails>;
-  getSearchDetails(firstName,lastName,loanNumber){
-    const headers = { 
+
+  getSearchDetails(firstName, lastName, loanNumber){
+    const headers = {
       'Access-Control-Allow-Origin': 'http://localhost:4200/*'
      };
 
-    
-    let token = sessionStorage.getItem('token');
+
+    const token = sessionStorage.getItem('token');
     const httpOptions = {
         headers: { 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'http://localhost:4200/*',
@@ -46,8 +46,7 @@ export class AuthenticateService {
 
 
 
-return this.httpClient.get<CustomerDetails[]>('http://localhost:7003/lmsSearchService/secure/search',httpOptions);
-//return this.httpClient.get<CustomerDetails[]>('http://localhost:7000/secure/search',httpOptions);
+return this.httpClient.get<CustomerDetails[]>('http://localhost:7003/lmsSearchService/secure/search', httpOptions);
 }
 
 }

@@ -40,6 +40,7 @@ export class AddLoanComponent implements OnInit {
     this.loanService.addLoan(this.loanDetails).subscribe(responseData => {
 
       this.msg = 'Loan created Sucessfully';
+      form.resetForm();
     }, (errorMessage) => {
       this.msg = errorMessage.error.message;
       if ( errorMessage.status === 400){
@@ -50,7 +51,7 @@ export class AddLoanComponent implements OnInit {
 
 
   });
-    form.resetForm();
+    
   }
 
 }

@@ -3,4 +3,6 @@ export class User {
     password: string;
     isAdminUser: boolean;
     isLoggedIn: boolean;
+    token: string;
+    userrole: string;
   }

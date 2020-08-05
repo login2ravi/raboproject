@@ -3,7 +3,7 @@ import {CustomerDetails} from '../model/CustomerDetails.model';
 import { ngModuleJitUrl } from '@angular/compiler';
 import {SearchResult} from '../model/Search.model';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 
 
@@ -14,13 +14,13 @@ export class SearchService {
 
   private searchResultArray: BehaviorSubject<Array<CustomerDetails>>;
 
-  
+
 
   constructor(private httpClient: HttpClient){
     this.searchResultArray = new BehaviorSubject(null);
   }
 
-  getSearchResult(){
+  getSearchResult(): Observable<CustomerDetails[]>{
     return this.searchResultArray.asObservable();
   }
 

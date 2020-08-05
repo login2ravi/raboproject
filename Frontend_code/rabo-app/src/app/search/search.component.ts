@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import {SearchService} from '../service/search.service';
-import {SearchResult} from '../model/Search.model';
 import { UsersService } from '../service/users.service';
 import { User } from '../model/User.model';
 
@@ -24,6 +23,7 @@ export class SearchComponent implements OnInit {
   msg: User;
   childTest = 'Checking child test ';
   loanDetails: CustomerDetails = new CustomerDetails();
+  ngForm: NgForm;
 
   constructor( private userservice: UsersService,
                private searchService: SearchService,
@@ -48,16 +48,15 @@ export class SearchComponent implements OnInit {
 
 
 
-  onSubmit(form: NgForm): void{
+  onSubmit(): void{
+
      this.userservice.getUserData().subscribe(
        userData$ => {
         this.msg = userData$;
       });
-
-     this.isAdminUser = this.msg.isAdminUser;
-
-     this.authenticateService.getSearchDetails(form.value.searchData.firstName,
-      form.value.searchData.lastName, form.value.searchData.loanNumber).subscribe(responseData => {
+     this.isAdminUser = (sessionStorage.getItem('userrole') === 'admin') ? true : false;
+     this.authenticateService.getSearchDetails(this.loanDetails.firstName,
+      this.loanDetails.lastName, this.loanDetails.loanNumber).subscribe(responseData => {
         this.resultList = responseData;
         this.searchService.setSearchResult(this.resultList);
         this.router.navigate(['/search', 'search-result'],

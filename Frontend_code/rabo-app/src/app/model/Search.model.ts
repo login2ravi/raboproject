@@ -1,7 +1,7 @@
 export class SearchResult {
-    firstName: String;
-    lastName: String;
+    firstName: string;
+    lastName: string;
     loanNumber: number;
     amount: number;
-    city: String;
+    city: string;
   }

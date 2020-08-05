@@ -1,32 +1,55 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UserLoginComponent } from './user-login.component';
-import { FormBuilder, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { User } from '../model/User.model';
 import { UsersService } from '../service/users.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import {Observable} from 'rxjs';
-import {BrowserModule , By} from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthenticateService } from '../service/authenticate.service';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-//const userServiceSpy = jasmine.createSpyObj<UsersService>('UsersService', ['validateUserDetails', 'setUserData','setCurrentScreen']);
+class  MockedAuthenticationService extends AuthenticateService{
+  private mockUser: BehaviorSubject<User>;
+
+
+  authenticate(userName, password): Observable<User> {
+
+    const tempUser: User = {
+          token : 'Tokkent123',
+          userName : 'admin',
+          userrole : 'admin',
+          isAdminUser : false,
+          isLoggedIn : false,
+          password : 'admin123'
+        };
+
+    return of(tempUser) ;
+  }
+
+}
+
+const returnUser: User = {
+  token : 'Tokkent123',
+  userName : 'admin',
+  userrole : 'admin',
+  isAdminUser : false,
+  isLoggedIn : false,
+  password : 'admin123'
+};
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;
   let fixture: ComponentFixture<UserLoginComponent>;
   let usersService: UsersService;
-  let authenticateService : AuthenticateService;
-  
-
-
+  let authenticateService;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientModule, FormsModule],
+      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       declarations: [ UserLoginComponent ],
       providers: [
-        UsersService, AuthenticateService,
+        UsersService, [{provide: AuthenticateService, useClass: MockedAuthenticationService }],
       ]
 
     })
@@ -36,35 +59,25 @@ describe('UserLoginComponent', () => {
   beforeEach(() => {
     usersService = new UsersService();
     fixture = TestBed.createComponent(UserLoginComponent);
+    authenticateService =   TestBed.inject(AuthenticateService);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    //fixture.detectChanges();
-    expect(component.ngForm.valid).toBeFalsy();
+    expect(component).toBeTruthy();
   });
 
-  it('form invalid when empty', () => {  
-    //fixture.debugElement.componentInstance.
-    var username_Ele = fixture.debugElement.query(By.css('#username'));
-    let element = fixture.debugElement.nativeElement;
-    
-    console.log("Checking1111 ngform =="+component.ngForm);
-    
-    console.log("***AFt**"+element.querySelector('#username').className);  
-    console.log("***AFT**"+element.querySelector('#username_error').className);
-    element.querySelector('#username').value = 'admin';
-    
+  it('should onSubmit() is sucessful', () => {
+    const router = TestBed.inject(Router);
+    const routerSpy = spyOn(router, 'navigate');
     fixture.detectChanges();
-    element.querySelector('#username').value = undefined;
+    component.onSubmit();
     fixture.detectChanges();
-    console.log("***AFT2222**"+element.querySelector('#username').className);  
-    console.log("*AFT2222**"+element.querySelector('#username_error').className);
-  
 
-    expect(element.querySelector('#username_error').className).not.toContain('d-none');
-    
+    expect(component.invalidUserMessage).toBeUndefined();
   });
-  
+
 });
+

@@ -11,8 +11,8 @@ import { CustomerDetails } from '../model/CustomerDetails.model';
   styleUrls: ['./update-loan.component.css']
 })
 export class UpdateLoanComponent implements OnInit {
-loanNumber: String;
-loanType: String;
+loanNumber: string;
+loanType: string;
 loanTerm: number;
 loan: number;
 isLoggedIn  = false;
@@ -22,10 +22,7 @@ msg: string;
 
   constructor(private router: Router ,
               private loanService: LoanService,
-              private route: ActivatedRoute) { 
-
-                console.log("Loan number in constructor==",this.loanNumber);
-              }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -34,7 +31,7 @@ msg: string;
       this.isLoggedIn = params['isLoggedIn'];
       this.isAdminUser = params['isAdmin'];
     });
-    console.log("Loan number in oninit==",this.loanNumber);
+
 
 
     this.loanService.getLoanDetails(this.loanNumber).subscribe(responseData => {
@@ -44,21 +41,15 @@ msg: string;
 
   }
 
-  onSubmit(form: NgForm): void{
-    let isSucessful = false;
+  onSubmit(): void{
     this.loanService.updateLoan(this.loanDetails).subscribe(responseData => {
       this.msg = 'Loan Updated Sucessfully';
     }, (errorMessage) =>{
-      console.log("Error code"+errorMessage.status);
-      console.log("Error Message"+errorMessage.error.code);
-      
-      if(errorMessage.status === 400){
+      if ( errorMessage.status === 400){
         this.msg = errorMessage.error.message;
-      }else if(errorMessage.status === 500){
+      }else if ( errorMessage.status === 500){
       this.msg = 'Application not currently avaliable. Please try again later';
       }
-      
-
   });
     }
 }
